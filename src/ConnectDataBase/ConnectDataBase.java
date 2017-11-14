@@ -360,8 +360,68 @@ public class ConnectDataBase {
         return s;  
     }
 
+    public String getDataPlayerLikeId(String id){
+       String s = "";
+        try {
+
+            String command = " select * from player where ID like "+"'%"+id+"%'";
+            rs = st.executeQuery(command);
+            while (rs.next()) {
+                String ID = rs.getString("ID");
+                s += ID + ",";
+                String name = rs.getString("NAME");
+                s += name + ",";
+                String position = rs.getString("VI TRI");
+                s += position + ",";
+                String adress = rs.getString("QUE QUAN");
+                s += adress + ",";
+                String tuoi = String.valueOf(rs.getInt("TUOI"));
+                s += tuoi + ",";
+                String luong = String.valueOf(rs.getInt("LUONG"));
+                s += luong + ",";
+                s += "%";
+            }
+        } catch (SQLException ex) {
+            return "";
+        }
+
+        return s;
+    }
+    
+    public String getDataPlayerLikeName(String name){
+       String s = "";
+        try {
+
+            String command = " select * from player where NAME like "+"'%"+name+"%'";
+            rs = st.executeQuery(command);
+            while (rs.next()) {
+                String ID = rs.getString("ID");
+                s += ID + ",";
+                String name1 = rs.getString("NAME");
+                s += name1 + ",";
+                String position = rs.getString("VI TRI");
+                s += position + ",";
+                String adress = rs.getString("QUE QUAN");
+                s += adress + ",";
+                String tuoi = String.valueOf(rs.getInt("TUOI"));
+                s += tuoi + ",";
+                String luong = String.valueOf(rs.getInt("LUONG"));
+                s += luong + ",";
+                s += "%";
+            }
+        } catch (SQLException ex) {
+            return "";
+        }
+
+        return s;
+    }
     public static void main(String[] args) {
         ConnectDataBase c = new ConnectDataBase();
+      //  System.out.println(c.getDataPlayerLikeId("P"));
+        String s = c.getDataPlayerById("P");
+        System.out.println(s);
+        
+        System.out.println(s);
     }
 
 }

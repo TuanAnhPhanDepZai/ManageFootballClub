@@ -64,6 +64,9 @@ public class ClientThread extends Thread {
                     }else if (data[1].equals("showcoso")){
                         List<CoSoVatChat> list = showDataCoSoVatChatFromServer(data[0]);
                         mainView.getCosoVatChatPanel().updateTable(list);
+                    }else if (data[1].equals("showdataplayerlike")){
+                        List<player> list = showDataPlayerFromServer(data[0]);
+                        mainView.getTableEmployeePanel().updateTable(list);
                     }
                 }
             } catch (IOException ex) {

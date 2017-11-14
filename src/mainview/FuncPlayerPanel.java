@@ -31,7 +31,8 @@ public class FuncPlayerPanel extends JPanel implements ActionListener{
 		setBorder(BorderFactory.createTitledBorder("Chức năng"));
 		add(createSearchPanel(),BorderLayout.NORTH);
 		add(createActionPanel(),BorderLayout.CENTER);
-               
+                
+              
 	}
 	
 
@@ -171,4 +172,6 @@ public class FuncPlayerPanel extends JPanel implements ActionListener{
         new FuncPlayerPanel().setVisible(true);
     }
 
+           
+       
 }

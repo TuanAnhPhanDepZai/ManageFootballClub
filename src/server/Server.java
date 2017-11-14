@@ -111,7 +111,20 @@ public class Server {
                         pw.println(dat);
                         pw.flush();
                     }else if (data[1].equals("find player luong")) {
+                       
                         String dat = cdb.getDataPlayerByLuong(data[0]) + ":showdataplayer";
+                        pw.println(dat);
+                        pw.flush();
+                    }else if (data[1].equals("find player like id")){
+                         System.out.println(data[0]);
+                        String dat = cdb.getDataPlayerLikeId(data[0])+":showdataplayer";
+                        System.out.println(dat);
+                        pw.println(dat);
+                        pw.flush();
+                    }else if (data[1].equals("find player like name")){
+                         System.out.println(data[0]);
+                        String dat = cdb.getDataPlayerLikeName(data[0])+":showdataplayer";
+                        System.out.println(dat);
                         pw.println(dat);
                         pw.flush();
                     }
