@@ -151,6 +151,26 @@ public class Server {
                         System.out.println(dat);
                         pw.println(dat);
                         pw.flush();
+                    }else if (data[1].equals("insertBanLanhDao")){
+                       String[] word = processRequestFromClientStep2(data[0]);
+                        int i = cdb.insertBanLanhDaoToDatabase(word);
+                        if (i == 1) {
+                            pw.println("insert sucess");
+                            pw.flush();
+                        } else {
+                            pw.println("insert error");
+                            pw.flush();
+                        }
+                    }else if (data[1].equals("updateBanLanhDao")){
+                       String[] word = processRequestFromClientStep2(data[0]);
+                        int i = cdb.updateBanLanhDaoToDatabase(word);
+                        if (i == 1) {
+                            pw.println("update sucess");
+                            pw.flush();
+                        } else {
+                            pw.println("update error");
+                            pw.flush();
+                        }
                     }
                 }
             }

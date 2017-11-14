@@ -5,25 +5,32 @@
         <group>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/AddThanhTichController/AddThanhTichPanel.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/ConnectDataBase/ConnectDataBase.java</file>
-            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/client/Client.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/ShowDataBanLanhDao/ShowDatabanLanhDaoController.java</file>
-            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/server/Server.java</file>
-            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/mainview/ChoiceView.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/AddPlayer/InsertPlayer.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/cosovachatcontroller/AddCosovatchatView.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/mainview/FuncPlayerPanel.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/addBanLanhDaoController/FindDataBanLanhDaoController.java</file>
-            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/AddThanhTichController/ShowDataThanhTichCOntroller.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/AddPlayer/UpdatePlayerDialog.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/addBanLanhDaoController/AddDataBanLanhDao.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/mainview/FunThanhTichPanel.java</file>
-            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/addkehoachcontroller/AddKeHoachView.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/addBanLanhDaoController/UpdateBanLanhDaoController.java</file>
-            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/AddPlayer/FindPlayerController.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/managefootbalclubl/run/Run.java</file>
-            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/mainview/MainView.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/client/ClientThread.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/addBanLanhDaoController/ThemBanLanhDaoController.java</file>
-            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/mainview/FunKeHoachPanel.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/mainview/FunCosoVatchatPanel.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/addBanLanhDaoController/DeleteBanLanhDaoController.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/client/Client.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/server/Server.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/mainview/ChoiceView.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/addBanLanhDaoController/AddBanLanhDao.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/addBanLanhDaoController/UpdataBanLanhDaoDialog.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/AddThanhTichController/ShowDataThanhTichCOntroller.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/addkehoachcontroller/AddKeHoachView.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/AddPlayer/FindPlayerController.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/mainview/MainView.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/mainview/FunKeHoachPanel.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/AddPlayer/UpdatePlayer.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/AddPlayer/AddPlayerController.java</file>
         </group>
     </open-files>
 </project-private>

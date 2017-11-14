@@ -516,12 +516,68 @@ public class ConnectDataBase {
         }
         return s;
     }
+      
+      public int insertBanLanhDaoToDatabase(String string[]) {
+        int i = 0;
+        try {
+            String ID = string[0];
+            String name = string[1];
+            String position = string[2];
+            int luong = 0;
+            try {
+                luong = Integer.valueOf(string[3]);
+            } catch (Exception e) {
+                return 0;
+            }
+            String command = "insert into banlanhdao values('" + ID + "','" + name + "','" + position + "'," + luong +");" ;
+            int t = st.executeUpdate(command);
+            if (t > 0) {
+                i = 1;
+            }
+
+        } catch (SQLException ex) {
+            return i;
+        }
+        return i;
+    } 
+    
+      public int updateBanLanhDaoToDatabase(String[] string) {
+        int i = 0;
+        try {
+
+          
+            int luong;
+            String ID = string[0];
+            String name = string[1];
+            String position = string[2];
+         
+            try {
+              
+                luong = Integer.valueOf(string[3]);
+            } catch (Exception ex) {
+                return 0;
+            }
+
+            String command = "update banlanhdao set ID = '" + ID + "',NAME = '" + name + "', POSITION ='" + position + "', LUONG = " + luong + " where ID = '" + ID + "' ";
+
+            if (st.executeUpdate(command) > 0) {
+                i = 1;
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return 0;
+        }
+
+        return i;
+    }
+     
     public static void main(String[] args) {
         ConnectDataBase c = new ConnectDataBase();
       //  System.out.println(c.getDataPlayerLikeId("P"));
-        String s = c.getDataBanLanhDaoId("D1");
-        System.out.println(s);
-        
+       
+       String string [] ={"D1","Minh","Chu Tich Hoi Dong Quan Tri","4000"};
+          System.out.println(c.updateBanLanhDaoToDatabase(string));
      
     }
 
