@@ -8,7 +8,6 @@ import java.awt.event.KeyListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import mainview.MainView;
 
@@ -17,7 +16,6 @@ public class FindPlayerController {
     private MainView mainView;
     private Client client;
     private JButton search;
-    private JTable table;
     private JTextField textField;
     private JComboBox<String> comboBox;
     public FindPlayerController(MainView mainView, Client client) {
@@ -51,14 +49,15 @@ public class FindPlayerController {
 
                     try {
                         int i = Integer.valueOf(luong);
-                        string = luong + ":find player luong";
+                        string = luong + ":find player less luong";
                         client.getPw().println(string);
                         client.getPw().flush();
                     } catch (Exception ex) {
                         JOptionPane.showMessageDialog(null, "Kieu du lieu nhap vao khong hop le");
                     }
-
-                }
+ 
+            
+            }
 
             }
         });
@@ -85,20 +84,7 @@ public class FindPlayerController {
                     client.getPw().println(string);
                     client.getPw().flush();
                     }
-                } else if (typeSearch.equals("Lương")) {
-                    String luong = String.valueOf(textField.getText().trim());
-
-                    try {
-                        int i = Integer.valueOf(luong);
-                        string = luong + ":find player luong";
-                        client.getPw().println(string);
-                        client.getPw().flush();
-                    } catch (Exception ex) {
-                        JOptionPane.showMessageDialog(null, "Kieu du lieu nhap vao khong hop le");
-                    }
- 
-            
-            }
+                } 
             }
             @Override
             public void keyPressed(KeyEvent e) {

@@ -415,13 +415,114 @@ public class ConnectDataBase {
 
         return s;
     }
+    
+    public String getDataPlayerFollowLessSalary(String salary){
+         int luong = Integer.valueOf(salary);
+         String s = "";
+        try {
+
+            String command = " select * from player where  LUONG "+"< "+luong ;
+            rs = st.executeQuery(command);
+            while (rs.next()) {
+                String ID = rs.getString("ID");
+                s += ID + ",";
+                String name1 = rs.getString("NAME");
+                s += name1 + ",";
+                String position = rs.getString("VI TRI");
+                s += position + ",";
+                String adress = rs.getString("QUE QUAN");
+                s += adress + ",";
+                String tuoi = String.valueOf(rs.getInt("TUOI"));
+                s += tuoi + ",";
+                String luong1 = String.valueOf(rs.getInt("LUONG"));
+                s += luong1 + ",";
+                s += "%";
+            }
+        } catch (SQLException ex) {
+            return "";
+        }
+
+        return s;
+    }
+    
+    public String getDataBanLanhDaoId(String id ){
+         String s = "";
+        try {
+
+            String command = " select * from banlanhdao where id = '" + id+"';" ;
+            rs = st.executeQuery(command);
+            while (rs.next()) {
+                String ID = rs.getString("ID");
+                s += ID + ",";
+                String name = rs.getString("NAME");
+                s += name + ",";
+                String position = rs.getString("POSITION");
+                s += position + ",";
+                String luong = String.valueOf(rs.getInt("LUONG"));
+                s += luong + ",";
+                s += "%";
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnectDataBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return s;
+    }
+     public String getDataBanLanhDaoName(String ten){
+         String s = "";
+        try {
+
+            String command = " select * from banlanhdao where name like "+ "'%"+ten+"%';" ;
+            rs = st.executeQuery(command);
+            while (rs.next()) {
+                String ID = rs.getString("ID");
+                s += ID + ",";
+                String name = rs.getString("NAME");
+                s += name + ",";
+                String position = rs.getString("POSITION");
+                s += position + ",";
+                String luong = String.valueOf(rs.getInt("LUONG"));
+                s += luong + ",";
+                s += "%";
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnectDataBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return s;
+    }
+     
+      public String getDataBanLanhDaoFollowSalary(String salary){
+         int salary1 = Integer.valueOf(salary);
+         String s = "";
+        try {
+
+            String command = " select * from banlanhdao where luong  < " + salary1 ;
+            rs = st.executeQuery(command);
+            while (rs.next()) {
+                String ID = rs.getString("ID");
+                s += ID + ",";
+                String name = rs.getString("NAME");
+                s += name + ",";
+                String position = rs.getString("POSITION");
+                s += position + ",";
+                String luong = String.valueOf(rs.getInt("LUONG"));
+                s += luong + ",";
+                s += "%";
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnectDataBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return s;
+    }
     public static void main(String[] args) {
         ConnectDataBase c = new ConnectDataBase();
       //  System.out.println(c.getDataPlayerLikeId("P"));
-        String s = c.getDataPlayerById("P");
+        String s = c.getDataBanLanhDaoId("D1");
         System.out.println(s);
         
-        System.out.println(s);
+     
     }
 
 }

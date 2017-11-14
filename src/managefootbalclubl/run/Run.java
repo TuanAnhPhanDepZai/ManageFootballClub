@@ -11,6 +11,7 @@ import AddThanhTichController.ShowDataThanhTichCOntroller;
 import addBanLanhDaoController.AddBanLanhDaoView;
 import ConnectDataBase.ConnectDataBase;
 import ShowDataBanLanhDao.ShowDatabanLanhDaoController;
+import addBanLanhDaoController.FindDataBanLanhDaoController;
 import addkehoachcontroller.AddKeHoachView;
 import addkehoachcontroller.ShowDataKeHoachController;
 import client.Client;
@@ -35,6 +36,7 @@ public class Run {
         AddPlayerController addPlayerController = new AddPlayerController(mainView, client);
         AddKeHoachView addKeHoachView = new AddKeHoachView(mainView);
         AddCosovatchatView addCosovatchatView = new AddCosovatchatView(mainView);
+        FindDataBanLanhDaoController findDataBanLanhDaoController = new FindDataBanLanhDaoController(client, mainView);
         
         ShowPlayerController showPlayerController = new ShowPlayerController(mainView, client);
         ShowDatabanLanhDaoController showDatabanLanhDaoController = new ShowDatabanLanhDaoController(mainView, client);

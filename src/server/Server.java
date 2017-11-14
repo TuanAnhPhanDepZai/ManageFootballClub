@@ -127,6 +127,30 @@ public class Server {
                         System.out.println(dat);
                         pw.println(dat);
                         pw.flush();
+                    }else if (data[1].equals("find player less luong")){
+                         System.out.println(data[0]);
+                        String dat = cdb.getDataPlayerFollowLessSalary(data[0])+":showdataplayer";
+                        System.out.println(dat);
+                        pw.println(dat);
+                        pw.flush();
+                    }else if (data[1].equals("find lanhdao id")){
+                         System.out.println(data[0]);
+                        String dat = cdb.getDataBanLanhDaoId(data[0])+":showdatabanlanhdao";
+                        System.out.println(dat);
+                        pw.println(dat);
+                        pw.flush();
+                    }else if (data[1].equals("find lanhdao name")){
+                        System.out.println(data[0]);
+                        String dat = cdb.getDataBanLanhDaoName(data[0])+":showdatabanlanhdao";
+                        System.out.println(dat);
+                        pw.println(dat);
+                        pw.flush();
+                    }else if (data[1].equals("find lanhdao less luong")){
+                        System.out.println(data[0]);
+                        String dat = cdb.getDataBanLanhDaoFollowSalary(data[0])+":showdatabanlanhdao";
+                        System.out.println(dat);
+                        pw.println(dat);
+                        pw.flush();
                     }
                 }
             }

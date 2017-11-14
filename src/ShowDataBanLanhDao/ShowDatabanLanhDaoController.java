@@ -23,7 +23,7 @@ public class ShowDatabanLanhDaoController {
     public ShowDatabanLanhDaoController(MainView mainView,Client client){
        this.mainView = mainView ;
        this.client = client ;
-       showData = mainView.getChoiceView().getBtnLanhDao();
+       showData = mainView.getFuncBanLanhDaoPanel().getBtnXemTatCa();
        setEvent();
     }
 
