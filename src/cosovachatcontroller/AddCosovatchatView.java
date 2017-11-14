@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import mainview.FunCosoVatchatPanel;
 import mainview.MainView;
 
 /**
@@ -21,11 +22,15 @@ public class AddCosovatchatView {
     private JButton btnAdd;
     private JPanel tablePanel ;
     private CosoVatChatPanel cosoVatChatPanel;
+    private FunCosoVatchatPanel funCosoVatchatPanel;
+    private JPanel smallPanel ;
     public AddCosovatchatView(MainView mainView) {
         this.mainView= mainView ;
         btnAdd = mainView .getChoiceView().getBtnCosoVatChat();
         tablePanel = mainView.getTablePanel();
         cosoVatChatPanel = mainView.getCosoVatChatPanel();
+        smallPanel = mainView.getSmallPanel();
+        funCosoVatchatPanel = mainView.getFunCosoVatchatPanel();
         setEvent();
     }
     
@@ -33,10 +38,18 @@ public class AddCosovatchatView {
         btnAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                
+                
                 tablePanel.removeAll();
                 tablePanel.add(cosoVatChatPanel);
                 tablePanel.validate();
                 tablePanel.repaint();
+                
+                  
+                smallPanel.removeAll();
+                smallPanel.add(funCosoVatchatPanel);
+                smallPanel.validate();
+                smallPanel.repaint();
             }
         });
     }

@@ -24,7 +24,8 @@ public class ChoiceView extends JPanel {
     private JButton btnKeHoach;
     private JButton btnCosoVatChat;
     private JButton btnThongKe;
-
+    private JButton btnDoiTaiKhoan ;
+    private JButton btnDangXuat ;
     public ChoiceView() {
         setLayout(new GridLayout(8, 1, 10, 10));
         setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
@@ -36,14 +37,16 @@ public class ChoiceView extends JPanel {
         btnKeHoach = new JButton("Ke Hoach");
         btnCosoVatChat = new JButton("Co So Vat Chat");
         btnThongKe = new JButton("Thong Ke");
-
+        btnDoiTaiKhoan = new JButton("Doi Tai Khoan");
+        btnDangXuat = new JButton("Dang Xuat");
         add(btnPlayer);
         add(btnLanhDao);
         add(btnThanhTich);
         add(btnKeHoach);
         add(btnCosoVatChat);
         add(btnThongKe);
-        
+        add(btnDoiTaiKhoan);
+        add(btnDangXuat);
         this.setBorder(new EmptyBorder(30, 10, 30, 10));
         // setEvent();
     }

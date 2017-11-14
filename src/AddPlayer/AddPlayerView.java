@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import mainview.FuncPlayerPanel;
 import mainview.MainView;
 import mainview.PanelImage;
 
@@ -20,13 +21,16 @@ public class AddPlayerView {
     private MainView mainView;
     private JPanel tablePanel;
     private PanelImage panelImage;
-    
+    private JPanel smallpanel ;
+    private FuncPlayerPanel funcPlayerPanel;
     public AddPlayerView(MainView mainView) {
         this.mainView = mainView;
         tablePanel = mainView.getTablePanel();
         addView = mainView.getChoiceView().getBtnPlayer();
         view = mainView.getTableEmployeePanel();
-        panelImage = mainView.getPanelImage();
+       
+        smallpanel = mainView.getSmallPanel();
+        funcPlayerPanel = mainView.getFuncEmployeePanel();
         setEvent();
     }
     
@@ -35,11 +39,15 @@ public class AddPlayerView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 
-                mainView.getFuncEmployeePanel().setVisible(true);
                 tablePanel.removeAll();
                 tablePanel.add(view);
                 tablePanel.validate();
                 tablePanel.repaint();
+                
+                smallpanel.removeAll();
+                smallpanel.add(funcPlayerPanel);
+                smallpanel.validate();
+                smallpanel.repaint();
             }
         });
     }

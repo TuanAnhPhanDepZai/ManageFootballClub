@@ -1,57 +1,53 @@
-package AddThanhTichController;
-
-import AddThanhTichView.ThanhTichPanel;
-import client.Client;
-import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import mainview.MainView;
-import mainview.PanelImage;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package AddThanhTichController;
+
+import AddThanhTichView.ThanhTichPanel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import mainview.FunThanhTichPanel;
+import mainview.MainView;
+
 /**
  *
  * @author phant
  */
 public class AddThanhTichPanel {
-
-    private MainView mainView;
-    private Client client;
-    private JButton addThanhTichView;
-    private JPanel tablePanel;
-    private ThanhTichPanel thanhTichPanel;
-    private PanelImage panelImage;
-    
-    public AddThanhTichPanel(MainView mainView) {
-        this.mainView = mainView;
-        addThanhTichView = mainView.getChoiceView().getBtnThanhTich();
-        tablePanel = mainView.getTablePanel();
+    private JPanel tablePanel ;
+    private MainView mainView ;
+    private JButton addThanhtich ;
+    private ThanhTichPanel thanhTichPanel ;
+    private JPanel smallPanel ;
+    private FunThanhTichPanel funThanhTichPanel;
+    public AddThanhTichPanel(MainView mainView ){
+        this.mainView = mainView ;
+        addThanhtich = mainView.getChoiceView().getBtnThanhTich();
         thanhTichPanel = mainView.getThanhTichPanel();
-        panelImage = mainView.getPanelImage();
+        smallPanel = mainView.getSmallPanel();
+        funThanhTichPanel = mainView.getFunThanhTichPanel();
+        tablePanel = mainView.getTablePanel();
         setEvent();
     }
-
-    private void setEvent() {
-
-        addThanhTichView.addActionListener(new ActionListener() {
+    
+    public void setEvent(){
+        addThanhtich.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainView.getFuncEmployeePanel().setVisible(false);
-               
                 
-                
-                mainView.setIsDisplayImage(true);
                 tablePanel.removeAll();
                 tablePanel.add(thanhTichPanel);
                 tablePanel.validate();
                 tablePanel.repaint();
+                
+                smallPanel.removeAll();
+                smallPanel.add(funThanhTichPanel);
+                smallPanel.validate();
+                smallPanel.repaint();
             }
         });
     }

@@ -28,12 +28,23 @@ public class MainView extends JFrame {
         private PanelImage panelImage ;
         private JPanel smallPanel ;
         private boolean isDisplayImage = false ;
+        private FuncBanLanhDaoPanel funcBanLanhDaoPanel;
+        private FunThanhTichPanel funThanhTichPanel ;
+        private FunKeHoachPanel funKeHoachPanel;
+        private FunCosoVatchatPanel funCosoVatchatPanel ;
         
 	public MainView() {
                 this.setLayout(new BorderLayout());
                 
                 choiceView = new ChoiceView();
+                
+                
 		funcEmployeePanel = new  FuncPlayerPanel();
+                funcBanLanhDaoPanel = new FuncBanLanhDaoPanel();
+                funThanhTichPanel = new FunThanhTichPanel();
+                funKeHoachPanel = new FunKeHoachPanel();
+                funCosoVatchatPanel = new FunCosoVatchatPanel();
+                
                 tableEmployeePanel = new TablePlayerPanel();
                                 
                 banLanhDaoView = new BanLanhDaoView();
@@ -68,7 +79,7 @@ public class MainView extends JFrame {
 		smallPanel = new JPanel();
 		smallPanel.setLayout(new BorderLayout());
 		smallPanel.add(funcEmployeePanel, BorderLayout.CENTER);
-		smallPanel.add(panelImage,BorderLayout.NORTH);
+		
                 
 		mainPanel.add(tablePanel,BorderLayout.CENTER);
 		mainPanel.add(smallPanel,BorderLayout.NORTH);
@@ -163,6 +174,46 @@ public class MainView extends JFrame {
 
     public void setIsDisplayImage(boolean isDisplayImage) {
         this.isDisplayImage = isDisplayImage;
+    }
+
+    public JPanel getSmallPanel() {
+        return smallPanel;
+    }
+
+    public void setSmallPanel(JPanel smallPanel) {
+        this.smallPanel = smallPanel;
+    }
+
+    public FuncBanLanhDaoPanel getFuncBanLanhDaoPanel() {
+        return funcBanLanhDaoPanel;
+    }
+
+    public void setFuncBanLanhDaoPanel(FuncBanLanhDaoPanel funcBanLanhDaoPanel) {
+        this.funcBanLanhDaoPanel = funcBanLanhDaoPanel;
+    }
+
+    public FunThanhTichPanel getFunThanhTichPanel() {
+        return funThanhTichPanel;
+    }
+
+    public void setFunThanhTichPanel(FunThanhTichPanel funThanhTichPanel) {
+        this.funThanhTichPanel = funThanhTichPanel;
+    }
+
+    public void setFunKeHoachPanel(FunKeHoachPanel funKeHoachPanel) {
+        this.funKeHoachPanel = funKeHoachPanel;
+    }
+
+    public FunKeHoachPanel getFunKeHoachPanel() {
+        return funKeHoachPanel;
+    }
+
+    public FunCosoVatchatPanel getFunCosoVatchatPanel() {
+        return funCosoVatchatPanel;
+    }
+
+    public void setFunCosoVatchatPanel(FunCosoVatchatPanel funCosoVatchatPanel) {
+        this.funCosoVatchatPanel = funCosoVatchatPanel;
     }
      
      

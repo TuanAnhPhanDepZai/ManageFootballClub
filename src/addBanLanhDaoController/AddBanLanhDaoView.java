@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import mainview.FuncBanLanhDaoPanel;
 import mainview.MainView;
 
 /**
@@ -23,12 +24,17 @@ public class AddBanLanhDaoView {
     private MainView mainView;
     private JPanel tablepanel;
     private BanLanhDaoView banLanhDaoView ;
+    private JPanel smallPanel ;
+    private FuncBanLanhDaoPanel funcBanLanhDaoPanel;
     
     public AddBanLanhDaoView(MainView mainView) {
         this.mainView = mainView;
         addView = mainView.getChoiceView().getBtnLanhDao();
         tablepanel = mainView.getTablePanel();
         banLanhDaoView = mainView.getBanLanhDaoView();
+        smallPanel = mainView.getSmallPanel();
+        funcBanLanhDaoPanel = mainView.getFuncBanLanhDaoPanel();
+        
         setEvent();
     }
     
@@ -36,11 +42,16 @@ public class AddBanLanhDaoView {
         addView.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainView.getFuncEmployeePanel().setVisible(false);
+                
                 tablepanel.removeAll();
                 tablepanel.add(banLanhDaoView);
                 tablepanel.validate();
                 tablepanel.repaint();
+                
+                smallPanel.removeAll();
+                smallPanel.add(funcBanLanhDaoPanel);
+                smallPanel.validate();
+                smallPanel.repaint();
             }
         });
     }
