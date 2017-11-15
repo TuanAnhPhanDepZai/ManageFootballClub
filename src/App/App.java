@@ -9,6 +9,10 @@ import client.Client;
 import client.ClientThread;
 import java.util.Scanner;
 import mainview.MainView;
+import taikhoan.DangKiTaiKhoanController;
+import taikhoan.DangKiTaiKhoanDialog;
+import taikhoan.DangNhapController;
+import taikhoan.DangNhapDialog;
 
 /**
  *
@@ -16,16 +20,19 @@ import mainview.MainView;
  */
 public class App {
 
+    private Client client ;
+    private DangNhapDialog dangNhapDialog; 
+    private DangNhapController dangNhapController;
+    private DangKiTaiKhoanController dangKiTaiKhoanController;
+    
+    public App(){
+        client = new Client();
+        dangNhapDialog = new DangNhapDialog();
+        dangNhapController = new DangNhapController(dangNhapDialog, client);
+        dangKiTaiKhoanController = new DangKiTaiKhoanController();
+    }
     public static void main(String[] args) {
-        Client client = new Client();
-        ClientThread clientThread = new ClientThread(client.getBr(),new MainView());
-        client.getPw().println("tuan anh");
-        client.getPw().flush();
-        Scanner scanner = new Scanner(System.in);
-          while(true){
-        String s = scanner.nextLine();
-        client.getPw().println(s);
-        client.getPw().flush();
+        App app = new App();
     }
-    }
+    
 }
