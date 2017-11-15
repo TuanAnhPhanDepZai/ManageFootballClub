@@ -8,6 +8,8 @@ package addBanLanhDaoController;
 import client.Client;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -36,6 +38,8 @@ public class FindDataBanLanhDaoController {
         search = mainView.getFuncBanLanhDaoPanel().getBtnTimKiem();
         
         setEvent();
+        
+        setKeyEvent();
     }
     
     public void setEvent(){
@@ -71,5 +75,48 @@ public class FindDataBanLanhDaoController {
 
             }
         });
+    }
+    
+    public void setKeyEvent(){
+       textField.addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+              if (e.getKeyChar() == KeyEvent.VK_ENTER){
+                    String string = "";
+                String typeSearch = comboBox.getSelectedItem().toString();
+                if (typeSearch.equals("ID")) {
+                    String id = textField.getText().trim();
+                    string = id + ":find lanhdao id";
+                    client.getPw().println(string);
+                    client.getPw().flush();
+                } else if (typeSearch.equals("Họ tên")) {
+                    String name = textField.getText().trim();
+                    string = name + ":find lanhdao name";
+                    client.getPw().println(string);
+                    client.getPw().flush();
+                } else if (typeSearch.equals("Lương")) {
+                    String luong = String.valueOf(textField.getText().trim());
+
+                    try {
+                        int i = Integer.valueOf(luong);
+                        string = luong + ":find lanhdao less luong";
+                        client.getPw().println(string);
+                        client.getPw().flush();
+                    } catch (Exception ex) {
+                        JOptionPane.showMessageDialog(null, "Kieu du lieu nhap vao khong hop le");
+                    }
+ 
+            
+            }
+
+              }
+           }
+
+           @Override
+           public void keyPressed(KeyEvent e) {}
+
+           @Override
+           public void keyReleased(KeyEvent e) {}
+       });
     }
 }
