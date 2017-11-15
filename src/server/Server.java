@@ -146,6 +146,7 @@ public class Server {
                         pw.println(dat);
                         pw.flush();
                     }else if (data[1].equals("find lanhdao less luong")){
+                        
                         System.out.println(data[0]);
                         String dat = cdb.getDataBanLanhDaoFollowSalary(data[0])+":showdatabanlanhdao";
                         System.out.println(dat);
@@ -169,6 +170,15 @@ public class Server {
                             pw.flush();
                         } else {
                             pw.println("update error");
+                            pw.flush();
+                        }
+                    }else if (data[1].equals("deletebanlanhdao")) {
+                        int i = cdb.deleteBanlanhdaoToDatabase(data[0]);
+                        if (i == 1) {
+                            pw.println("delete sucess");
+                            pw.flush();
+                        } else {
+                            pw.println("delete error");
                             pw.flush();
                         }
                     }

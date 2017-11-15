@@ -12,6 +12,7 @@ import addBanLanhDaoController.AddBanLanhDaoView;
 import ConnectDataBase.ConnectDataBase;
 import ShowDataBanLanhDao.ShowDatabanLanhDaoController;
 import addBanLanhDaoController.AddDataBanLanhDao;
+import addBanLanhDaoController.DeleteBanLanhDaoController;
 import addBanLanhDaoController.FindDataBanLanhDaoController;
 import addBanLanhDaoController.UpdateBanLanhDaoController;
 import addkehoachcontroller.AddKeHoachView;
@@ -38,7 +39,7 @@ public class Run {
         AddPlayerController addPlayerController = new AddPlayerController(mainView, client);
         AddKeHoachView addKeHoachView = new AddKeHoachView(mainView);
         AddCosovatchatView addCosovatchatView = new AddCosovatchatView(mainView);
-        FindDataBanLanhDaoController findDataBanLanhDaoController = new FindDataBanLanhDaoController(client, mainView);
+        
         AddDataBanLanhDao addDataBanLanhDao = new AddDataBanLanhDao(client, mainView);
         
         
@@ -50,10 +51,12 @@ public class Run {
         
         
         DeletePlayer deletePlayer = new DeletePlayer(mainView, client);
-
+        DeleteBanLanhDaoController deleteBanLanhDaoController = new DeleteBanLanhDaoController(client, mainView);
+        
         UpdatePlayer updatePlayer = new UpdatePlayer(mainView, client);
         UpdateBanLanhDaoController updateBanLanhDaoController = new UpdateBanLanhDaoController(mainView, client) ;
         
         FindPlayerController findPlayerController = new FindPlayerController(mainView, client);
+        FindDataBanLanhDaoController findDataBanLanhDaoController = new FindDataBanLanhDaoController(client, mainView);
     }
 }

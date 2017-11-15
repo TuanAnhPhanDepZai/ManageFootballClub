@@ -571,14 +571,32 @@ public class ConnectDataBase {
 
         return i;
     }
-     
+    
+    public int deleteBanlanhdaoToDatabase(String ID) {
+        int i = 0;
+        try {
+
+            String command = " delete from banlanhdao where ID = '" + ID + "'";
+            int t = st.executeUpdate(command);
+            if (t > 0) {
+                i = 1;
+            }
+
+        } catch (SQLException ex) {
+            return 0;
+        }
+        return i;
+    }
+
     public static void main(String[] args) {
         ConnectDataBase c = new ConnectDataBase();
       //  System.out.println(c.getDataPlayerLikeId("P"));
        
-       String string [] ={"D1","Minh","Chu Tich Hoi Dong Quan Tri","4000"};
-          System.out.println(c.updateBanLanhDaoToDatabase(string));
-     
+       //String string [] ={"D1","Minh","Chu Tich Hoi Dong Quan Tri","4000"};
+         // System.out.println(c.updateBanLanhDaoToDatabase(string));
+       
+          
+        System.out.println(c.getDataBanLanhDaoFollowSalary("2000"));
     }
 
 }
