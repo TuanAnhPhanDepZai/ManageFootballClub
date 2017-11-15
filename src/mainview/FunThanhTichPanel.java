@@ -60,14 +60,10 @@ public class FunThanhTichPanel extends JPanel implements ActionListener{
 		panel.setLayout(new GridLayout(1, 4, 10, 10));
 		
 		btnXemTatCa = createButtons("XEM TẤT CẢ");
-		btnThem     = createButtons("THÊM");
-		btnSua      = createButtons("SỬA THÔNG TIN");
 		btnXoa      = createButtons("XÓA");
 		
 		
 		panel.add(btnXemTatCa);
-		panel.add(btnThem);
-		panel.add(btnSua);
 		panel.add(btnXoa);
 		
                 

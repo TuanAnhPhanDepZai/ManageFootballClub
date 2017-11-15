@@ -181,6 +181,34 @@ public class Server {
                             pw.println("delete error");
                             pw.flush();
                         }
+                    }else if (data[1].equals("deletethanhtich")) {
+                        int i = 0 ;
+                         String[] word = processRequestFromClientStep2(data[0]);
+                        String nam = word[0];
+                                
+                        String giaiDau = word[1];
+                        System.out.println(nam +""+ giaiDau);
+                        i = cdb.deleteThanhTichToDatabase(nam, giaiDau);
+                        if (i == 1) {
+                            pw.println("delete sucess");
+                            pw.flush();
+                        } else {
+                            pw.println("delete error");
+                            pw.flush();
+                        }
+                    }else if (data[1].equals("find thanhtich nam")) {
+                        
+                        String thanhtich = cdb.getDataThanhTichByNam(data[0])+":showthanhtich";
+                        pw.println(thanhtich);
+                        pw.flush();
+                        
+                    }else if (data[1].equals("find thanhtich name")) {
+                        
+                        String thanhtich = cdb.getDataThanhTichByName(data[0])+":showthanhtich";
+                        pw.println(thanhtich);
+                        pw.flush();
+                        
+                        
                     }
                 }
             }

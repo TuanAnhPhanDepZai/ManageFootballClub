@@ -587,7 +587,71 @@ public class ConnectDataBase {
         }
         return i;
     }
+ 
+     public int deleteThanhTichToDatabase(String nam, String giaiDau) {
+        int i = 0;
+        int namThiDau = Integer.valueOf(nam);
+        try {
 
+            String command = " delete from thanhtich where nam = '"+ namThiDau+"' and `GIAI DAU` = '" + giaiDau +"';"  ;
+            int t = st.executeUpdate(command);
+            if (t > 0) {
+                i = 1;
+            }
+
+        } catch (SQLException ex) {
+            return 0;
+        }
+        return i;
+    }
+
+     public String getDataThanhTichByNam(String nam){
+         int nam1 = Integer.valueOf(nam);
+         String s = "";
+        try {
+
+            String command = " select * from thanhtich where nam = " + nam1 ;
+            rs = st.executeQuery(command);
+            while (rs.next()) {
+                String namthidau = rs.getString("NAM");
+                s += namthidau + ",";
+                String giaidau = rs.getString("GIAI DAU");
+                s += giaidau + ",";
+                String thanhtich = rs.getString("THANH TICH");
+                
+                s += thanhtich + ",";
+                s += "%";
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnectDataBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return s;
+    }
+    
+      public String getDataThanhTichByName(String name){
+        
+         String s = "";
+        try {
+
+             String command = " select * from thanhtich where `thanh tich` = '" + name +"';" ;
+            rs = st.executeQuery(command);
+            while (rs.next()) {
+                String namthidau = rs.getString("NAM");
+                s += namthidau + ",";
+                String giaidau = rs.getString("GIAI DAU");
+                s += giaidau + ",";
+                String thanhtich = rs.getString("THANH TICH");
+                
+                s += thanhtich + ",";
+                s += "%";
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnectDataBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return s;
+    }
     public static void main(String[] args) {
         ConnectDataBase c = new ConnectDataBase();
       //  System.out.println(c.getDataPlayerLikeId("P"));
@@ -596,7 +660,8 @@ public class ConnectDataBase {
          // System.out.println(c.updateBanLanhDaoToDatabase(string));
        
           
-        System.out.println(c.getDataBanLanhDaoFollowSalary("2000"));
+        System.out.println(c.getDataThanhTichByName("Vo Dich"));
+      
     }
 
 }

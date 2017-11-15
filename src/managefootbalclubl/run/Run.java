@@ -10,6 +10,8 @@ import AddThanhTichController.AddThanhTichPanel;
 import AddThanhTichController.ShowDataThanhTichCOntroller;
 import addBanLanhDaoController.AddBanLanhDaoView;
 import ConnectDataBase.ConnectDataBase;
+import AddThanhTichController.DeleteThanhTich;
+import ShowDataBanLanhDao.ShowAllDataBanLanhDao;
 import ShowDataBanLanhDao.ShowDatabanLanhDaoController;
 import addBanLanhDaoController.AddDataBanLanhDao;
 import addBanLanhDaoController.DeleteBanLanhDaoController;
@@ -48,15 +50,18 @@ public class Run {
         ShowDataThanhTichCOntroller showDataThanhTichCOntroller = new ShowDataThanhTichCOntroller(mainView, client);
         ShowDataKeHoachController showDataKeHoachController = new ShowDataKeHoachController(mainView, client);
         ShowCosoVatChatController showCosoVatChatController = new ShowCosoVatChatController(mainView, client);
-        
+        ShowAllDataBanLanhDao showAllDataBanLanhDao = new ShowAllDataBanLanhDao(client, mainView);
+        ShowAllThanhTich showAllThanhTich = new ShowAllThanhTich(mainView, client);
         
         DeletePlayer deletePlayer = new DeletePlayer(mainView, client);
         DeleteBanLanhDaoController deleteBanLanhDaoController = new DeleteBanLanhDaoController(client, mainView);
+        DeleteThanhTich deleteThanhTich = new DeleteThanhTich(client, mainView);
         
         UpdatePlayer updatePlayer = new UpdatePlayer(mainView, client);
         UpdateBanLanhDaoController updateBanLanhDaoController = new UpdateBanLanhDaoController(mainView, client) ;
         
         FindPlayerController findPlayerController = new FindPlayerController(mainView, client);
         FindDataBanLanhDaoController findDataBanLanhDaoController = new FindDataBanLanhDaoController(client, mainView);
+        FindThanhTichController findThanhTichController = new FindThanhTichController(mainView, client);
     }
 }
