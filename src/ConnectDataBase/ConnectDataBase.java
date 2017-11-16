@@ -685,6 +685,19 @@ public class ConnectDataBase {
         }
         return i ;
     }
+    
+     public int updateTaiKhoan(String username,String password){
+           int i = 0 ;
+        try {
+         
+            String command = "update taikhoan set matkhau = '"+ password +"' where username = '"+ username +"';";
+            i = st.executeUpdate(command);
+            if ( i > 0 ) i =1; 
+        } catch (SQLException ex) {
+            i = 0 ;
+        }
+        return i ;
+    }
     public static void main(String[] args) {
         ConnectDataBase c = new ConnectDataBase();
       //  System.out.println(c.getDataPlayerLikeId("P"));
@@ -693,7 +706,7 @@ public class ConnectDataBase {
          // System.out.println(c.updateBanLanhDaoToDatabase(string));
        
           
-      int i = c.addTaiKhoan("tiendung", "14121997");
+      int i = c.updateTaiKhoan("tuananh","1111111");
       System.out.println(i);
       
     }

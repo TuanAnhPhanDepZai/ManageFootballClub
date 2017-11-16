@@ -207,15 +207,14 @@ public class ServerThread extends Thread{
                           
                           int i = cdb.checkUserLogin(username, password);
                           if (i == 1 ){
-                              pw.println("dang nhap thanh cong");
+                              pw.println(username+","+password+":dang nhap thanh cong");
                               pw.flush();
                           }else{
                               pw.println("dang nhap that bai");
                               pw.flush();
                           }
                           
-                      }else if (data[1].equals("dangkitaikhoan")) {
-                          
+                      }else if (data[1].equals("dangkitaikhoan")) {                          
                           String [] word = processRequestFromClientStep2(data[0]);
                           String username = word[0];
                           String password = word[1];
@@ -227,8 +226,20 @@ public class ServerThread extends Thread{
                           }else{
                               pw.println("dang ki that bai");
                               pw.flush();
-                          }
+                          }    
+                      }else if (data[1].equals("updatetaikhoan")) {                          
+                          String [] word = processRequestFromClientStep2(data[0]);
+                          String username = word[0];
+                          String password = word[1];
                           
+                          int i = cdb.updateTaiKhoan(username, password) ;
+                          if (i == 1 ){
+                              pw.println("thay doi tai khoan thanh cong");
+                              pw.flush();
+                          }else{
+                              pw.println("thay doi tai khoan that bai");
+                              pw.flush();
+                          }    
                       }
                   }
               } catch (IOException ex) {

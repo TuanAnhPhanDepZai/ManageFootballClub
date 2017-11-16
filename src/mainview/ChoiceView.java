@@ -8,6 +8,8 @@ import javax.swing.Action;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -26,11 +28,13 @@ public class ChoiceView extends JPanel {
     private JButton btnThongKe;
     private JButton btnDoiTaiKhoan ;
     private JButton btnDangXuat ;
+    private JLabel lbNameUser ;
     public ChoiceView() {
-        setLayout(new GridLayout(8, 1, 10, 10));
+        setLayout(new GridLayout(10, 1, 10, 10));
         setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
         setBorder(BorderFactory.createTitledBorder("Danh mục"));
-
+        
+        lbNameUser = new JLabel();
         btnPlayer = new JButton("Player");
         btnLanhDao = new JButton("Lanh dao");
         btnThanhTich = new JButton("thanh tich");
@@ -39,6 +43,7 @@ public class ChoiceView extends JPanel {
         btnThongKe = new JButton("Thong Ke");
         btnDoiTaiKhoan = new JButton("Doi Tai Khoan");
         btnDangXuat = new JButton("Dang Xuat");
+        add(lbNameUser);
         add(btnPlayer);
         add(btnLanhDao);
         add(btnThanhTich);
@@ -115,12 +120,38 @@ public class ChoiceView extends JPanel {
         this.accessibleContext = accessibleContext;
     }
 
-    public void setEvent() {
-        btnPlayer.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "sdsdsd");
-            }
-        });
+    public JButton getBtnThongKe() {
+        return btnThongKe;
     }
+
+    public void setBtnThongKe(JButton btnThongKe) {
+        this.btnThongKe = btnThongKe;
+    }
+
+    public JButton getBtnDoiTaiKhoan() {
+        return btnDoiTaiKhoan;
+    }
+
+    public void setBtnDoiTaiKhoan(JButton btnDoiTaiKhoan) {
+        this.btnDoiTaiKhoan = btnDoiTaiKhoan;
+    }
+
+    public JButton getBtnDangXuat() {
+        return btnDangXuat;
+    }
+
+    public void setBtnDangXuat(JButton btnDangXuat) {
+        this.btnDangXuat = btnDangXuat;
+    }
+
+    public JLabel getLbNameUser() {
+        return lbNameUser;
+    }
+
+    public void setLbNameUser(JLabel lbNameUser) {
+        this.lbNameUser = lbNameUser;
+    }
+
+    
+    
 }

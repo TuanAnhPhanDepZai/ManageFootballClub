@@ -7,6 +7,7 @@ package App;
 
 import client.Client;
 import client.ClientThread;
+import dangxuat.DangXuatController;
 import java.util.Scanner;
 import mainview.MainView;
 import taikhoan.DangKiTaiKhoanController;
@@ -14,6 +15,7 @@ import taikhoan.DangKiTaiKhoanDialog;
 import taikhoan.DangNhapController;
 import taikhoan.DangNhapDialog;
 import taikhoan.ShowViewDangKi;
+import thaydoitaikhoan.ShowThayDoiTaiKhoanView;
 
 /**
  *
@@ -29,6 +31,7 @@ public class App {
     private MainView mainView ;
     private DangKiTaiKhoanDialog dangKiTaiKhoanDialog;
     private ShowViewDangKi showViewDangKi;
+    private ShowThayDoiTaiKhoanView showThayDoiTaiKhoanView;
     public App(){
        client = new Client();
        mainView = new MainView();
@@ -37,6 +40,8 @@ public class App {
        //dangKiTaiKhoanController = new DangKiTaiKhoanController(client, dangKiTaiKhoanDialog);      
        showViewDangKi = new ShowViewDangKi(dangNhapDialog, client);
        clientThread = new ClientThread(client, mainView,dangNhapDialog);
+       showThayDoiTaiKhoanView = new ShowThayDoiTaiKhoanView(mainView, client) ;
+        DangXuatController dangXuatController = new DangXuatController(mainView);
     }
     public static void main(String[] args) {
         App app = new App();

@@ -32,6 +32,8 @@ public class MainView extends JFrame {
         private FunThanhTichPanel funThanhTichPanel ;
         private FunKeHoachPanel funKeHoachPanel;
         private FunCosoVatchatPanel funCosoVatchatPanel ;
+        private String username ;
+        private String password ;
         
 	public MainView() {
                 this.setLayout(new BorderLayout());
@@ -214,6 +216,22 @@ public class MainView extends JFrame {
 
     public void setFunCosoVatchatPanel(FunCosoVatchatPanel funCosoVatchatPanel) {
         this.funCosoVatchatPanel = funCosoVatchatPanel;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
      
      

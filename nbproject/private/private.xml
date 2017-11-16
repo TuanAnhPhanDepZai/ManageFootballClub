@@ -7,10 +7,12 @@
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/ConnectDataBase/ConnectDataBase.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/ShowDataBanLanhDao/ShowDatabanLanhDaoController.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/taikhoan/ModelTaiKhoan.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/thaydoitaikhoan/ThayDoiTaiKhoanController.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/AddPlayer/InsertPlayer.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/cosovachatcontroller/AddCosovatchatView.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/mainview/FuncPlayerPanel.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/addBanLanhDaoController/FindDataBanLanhDaoController.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/thaydoitaikhoan/ThayDoiTaiKhoanDialog.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/AddPlayer/UpdatePlayerDialog.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/AddThanhTichController/DeleteThanhTich.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/addBanLanhDaoController/AddDataBanLanhDao.java</file>
@@ -24,6 +26,7 @@
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/taikhoan/DangNhapDialog.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/addBanLanhDaoController/ThemBanLanhDaoController.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/ShowDataBanLanhDao/ShowAllDataBanLanhDao.java</file>
+            <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/thaydoitaikhoan/ShowThayDoiTaiKhoanView.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/taikhoan/DangNhapController.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/mainview/FunCosoVatchatPanel.java</file>
             <file>file:/C:/Users/phant/Desktop/lab03/ManageFootballClub/src/server/ServerDemo.java</file>

@@ -52,13 +52,13 @@ public class ClientThread extends Thread {
                 } else if (string.equals("update error")) {
                     JOptionPane.showMessageDialog(null, "update error");
                 } else if (string.equals("update sucess")) {
-                    JOptionPane.showMessageDialog(null, "update thanh cong ");
-                }  else if (string.equals("dang nhap thanh cong")) {
-                    JOptionPane.showMessageDialog(null, "dang nhap thanh cong ");
-                    mainView.setVisible(true);
-                    dangNhapDialog.setVisible(false);
-                    run= new Run(mainView, client);
-                }else if (string.equals("dang nhap that bai")) {
+                    JOptionPane.showMessageDialog(null, "Update thanh cong");
+                }else if (string.equals("thay doi tai khoan thanh cong")) {
+                    JOptionPane.showMessageDialog(null, "Cap nhat thanh cong");
+                }else if (string.equals("thay doi tai khoan that bai")) {
+                    JOptionPane.showMessageDialog(null, "Cap nhat that bai");
+                }
+                   else if (string.equals("dang nhap that bai")) {
                     JOptionPane.showMessageDialog(null, "dang nhap that bai");
                 }else if (string.equals("dang ki that bai")) {
                     JOptionPane.showMessageDialog(null, "dang ki that bai");
@@ -85,6 +85,17 @@ public class ClientThread extends Thread {
                     }else if (data[1].equals("showdataplayerlike")){
                         List<player> list = showDataPlayerFromServer(data[0]);
                         mainView.getTableEmployeePanel().updateTable(list);
+                    }else if (data[1].equals("dang nhap thanh cong")){
+                        String word[] = processData(data[0]);
+                        String username = word[0];
+                        String password = word[1];
+                        JOptionPane.showMessageDialog(null, "dang nhap thanh cong ");
+                    mainView.setVisible(true);
+                    mainView.getChoiceView().getLbNameUser().setText("CHao "+username);
+                    mainView.setUsername(username);
+                    mainView.setPassword(password);
+                    dangNhapDialog.setVisible(false);
+                    run= new Run(mainView, client);
                     }
                 }
             } catch (IOException ex) {
