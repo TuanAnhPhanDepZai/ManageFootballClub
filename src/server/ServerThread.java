@@ -196,11 +196,38 @@ public class ServerThread extends Thread{
                           pw.flush();
                           
                       }else if (data[1].equals("find thanhtich name")) {
-                          
                           String thanhtich = cdb.getDataThanhTichByName(data[0])+":showthanhtich";
                           pw.println(thanhtich);
                           pw.flush();
+                      }else if (data[1].equals("dangnhap")) {
                           
+                          String [] word = processRequestFromClientStep2(data[0]);
+                          String username = word[0];
+                          String password = word[1];
+                          
+                          int i = cdb.checkUserLogin(username, password);
+                          if (i == 1 ){
+                              pw.println("dang nhap thanh cong");
+                              pw.flush();
+                          }else{
+                              pw.println("dang nhap that bai");
+                              pw.flush();
+                          }
+                          
+                      }else if (data[1].equals("dangkitaikhoan")) {
+                          
+                          String [] word = processRequestFromClientStep2(data[0]);
+                          String username = word[0];
+                          String password = word[1];
+                          
+                          int i = cdb.addTaiKhoan(username, password) ;
+                          if (i == 1 ){
+                              pw.println("dang ki thanh cong");
+                              pw.flush();
+                          }else{
+                              pw.println("dang ki that bai");
+                              pw.flush();
+                          }
                           
                       }
                   }

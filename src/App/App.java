@@ -13,6 +13,7 @@ import taikhoan.DangKiTaiKhoanController;
 import taikhoan.DangKiTaiKhoanDialog;
 import taikhoan.DangNhapController;
 import taikhoan.DangNhapDialog;
+import taikhoan.ShowViewDangKi;
 
 /**
  *
@@ -24,12 +25,18 @@ public class App {
     private DangNhapDialog dangNhapDialog; 
     private DangNhapController dangNhapController;
     private DangKiTaiKhoanController dangKiTaiKhoanController;
-    
+    private ClientThread clientThread;
+    private MainView mainView ;
+    private DangKiTaiKhoanDialog dangKiTaiKhoanDialog;
+    private ShowViewDangKi showViewDangKi;
     public App(){
-        client = new Client();
-        dangNhapDialog = new DangNhapDialog();
-        dangNhapController = new DangNhapController(dangNhapDialog, client);
-        dangKiTaiKhoanController = new DangKiTaiKhoanController();
+       client = new Client();
+       mainView = new MainView();
+       dangNhapDialog = new DangNhapDialog();
+       dangNhapController = new DangNhapController(dangNhapDialog, client);
+       //dangKiTaiKhoanController = new DangKiTaiKhoanController(client, dangKiTaiKhoanDialog);      
+       showViewDangKi = new ShowViewDangKi(dangNhapDialog, client);
+       clientThread = new ClientThread(client, mainView,dangNhapDialog);
     }
     public static void main(String[] args) {
         App app = new App();

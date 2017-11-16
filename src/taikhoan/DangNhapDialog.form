@@ -63,17 +63,17 @@
                   <Component id="jTextField1" pref="39" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jLabel2" max="32767" attributes="0"/>
-                  <Component id="password" pref="43" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="password" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="BtnDangNhap" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BtnDangki" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BtnThoat" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="19" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -86,11 +86,13 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="User name "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Pass word"/>
       </Properties>
     </Component>
@@ -118,7 +120,6 @@
     <Component class="javax.swing.JPasswordField" name="password">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
       </Properties>
     </Component>
   </SubComponents>

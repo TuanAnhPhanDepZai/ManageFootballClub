@@ -652,6 +652,39 @@ public class ConnectDataBase {
         }
         return s;
     }
+      
+      
+    public int checkUserLogin(String username ,String password){
+        int i = 0 ;
+        try {
+          
+            String command = "select * from taikhoan where username = '" + username +"';"  ;
+            rs = st.executeQuery(command);
+            
+            while (rs.next()){
+                String pass  = rs.getString(2);
+                if (pass.equals(password)){
+                i = 1 ;
+            }
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return i ;
+    }
+    
+    public int addTaiKhoan(String username,String password){
+           int i = 0 ;
+        try {
+         
+            String command = "insert into taikhoan values('"+username+"','"+password+"',0);" ;
+            i = st.executeUpdate(command);
+            if ( i > 0 ) i =1; 
+        } catch (SQLException ex) {
+            i = 0 ;
+        }
+        return i ;
+    }
     public static void main(String[] args) {
         ConnectDataBase c = new ConnectDataBase();
       //  System.out.println(c.getDataPlayerLikeId("P"));
@@ -660,7 +693,8 @@ public class ConnectDataBase {
          // System.out.println(c.updateBanLanhDaoToDatabase(string));
        
           
-        System.out.println(c.getDataThanhTichByName("Vo Dich"));
+      int i = c.addTaiKhoan("tiendung", "14121997");
+      System.out.println(i);
       
     }
 

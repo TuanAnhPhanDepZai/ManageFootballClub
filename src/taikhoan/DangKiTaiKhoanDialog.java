@@ -5,6 +5,10 @@
  */
 package taikhoan;
 
+import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author phant
@@ -14,8 +18,8 @@ public class DangKiTaiKhoanDialog extends javax.swing.JDialog {
     /**
      * Creates new form DangKiTaiKhoanDialog
      */
-    public DangKiTaiKhoanDialog(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public DangKiTaiKhoanDialog() {
+       this.setVisible(true);
         initComponents();
     }
 
@@ -160,21 +164,70 @@ public class DangKiTaiKhoanDialog extends javax.swing.JDialog {
         }
         //</editor-fold>
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                DangKiTaiKhoanDialog dialog = new DangKiTaiKhoanDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
+//        /* Create and display the dialog */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                DangKiTaiKhoanDialog dialog = new DangKiTaiKhoanDialog(new javax.swing.JFrame(), true);
+//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+//                    @Override
+//                    public void windowClosing(java.awt.event.WindowEvent e) {
+//                        System.exit(0);
+//                    }
+//                });
+//                dialog.setVisible(true);
+//            }
+//        });
     }
 
+    public JButton getBtnCanCel() {
+        return BtnCanCel;
+    }
+
+    public void setBtnCanCel(JButton BtnCanCel) {
+        this.BtnCanCel = BtnCanCel;
+    }
+
+    public JButton getBtnDangKi() {
+        return BtnDangKi;
+    }
+
+    public void setBtnDangKi(JButton BtnDangKi) {
+        this.BtnDangKi = BtnDangKi;
+    }
+
+    public JTextField getjTextField1() {
+        return jTextField1;
+    }
+
+    public void setjTextField1(JTextField jTextField1) {
+        this.jTextField1 = jTextField1;
+    }
+
+    public JPasswordField getPwconfirm() {
+        return pwconfirm;
+    }
+
+    public void setPwconfirm(JPasswordField pwconfirm) {
+        this.pwconfirm = pwconfirm;
+    }
+
+    public JPasswordField getPwpassword() {
+        return pwpassword;
+    }
+
+    public void setPwpassword(JPasswordField pwpassword) {
+        this.pwpassword = pwpassword;
+    }
+
+    public JTextField getTfuser() {
+        return tfuser;
+    }
+
+    public void setTfuser(JTextField tfuser) {
+        this.tfuser = tfuser;
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCanCel;
     private javax.swing.JButton BtnDangKi;

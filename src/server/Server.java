@@ -25,7 +25,8 @@ import javax.swing.JOptionPane;
  * @author phant
  */
 public class Server {
-
+   // class Server chi lam nhiem vu mo cong ket noi 1997 , 
+    // mo 1 vong lap vo han while de thiet lap cac ket noi tu client
     private ServerSocket serverSocket;
     private Socket socket;
     private ConnectDataBase cdb;
@@ -40,7 +41,11 @@ public class Server {
     public void serve() {   
         try {
             ServerSocket serverSocket = new ServerSocket(1997);
-            Socket socket = serverSocket.accept();        
+            System.out.println("Da mo cong ket noi cho Client");
+            while (true){
+                socket = serverSocket.accept();
+                new ServerThread(socket, cdb);
+            }
         } catch (IOException ex) {
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
         }

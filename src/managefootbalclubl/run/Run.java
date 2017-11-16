@@ -28,13 +28,11 @@ import mainview.MainView;
 import playercontroller.ShowPlayerController;
 
 public class Run {
-
-    public static void main(String[] args) {
-        MainView mainView = new MainView();
-        ConnectDataBase connectDataBase = new ConnectDataBase();
-        Client client = new Client();
-        ClientThread clientThread = new ClientThread(client.getBr(), mainView);
-
+    private MainView mainView ;
+    private Client client ;
+    public Run(MainView mainView, Client client){
+        this.mainView = mainView ;
+        this.client = client ;
         AddBanLanhDaoView addBanLanhDaoView = new AddBanLanhDaoView(mainView);
         AddPlayerView addPlayerView = new AddPlayerView(mainView);
         AddThanhTichPanel addThanhTichPanel = new AddThanhTichPanel(mainView);
@@ -63,5 +61,40 @@ public class Run {
         FindPlayerController findPlayerController = new FindPlayerController(mainView, client);
         FindDataBanLanhDaoController findDataBanLanhDaoController = new FindDataBanLanhDaoController(client, mainView);
         FindThanhTichController findThanhTichController = new FindThanhTichController(mainView, client);
+    }
+    public static void main(String[] args) {
+//        MainView mainView = new MainView();
+//        ConnectDataBase connectDataBase = new ConnectDataBase();
+//        Client client = new Client();
+      //  ClientThread clientThread = new ClientThread(client.getBr(), mainView);
+
+//        AddBanLanhDaoView addBanLanhDaoView = new AddBanLanhDaoView(mainView);
+//        AddPlayerView addPlayerView = new AddPlayerView(mainView);
+//        AddThanhTichPanel addThanhTichPanel = new AddThanhTichPanel(mainView);
+//        AddPlayerController addPlayerController = new AddPlayerController(mainView, client);
+//        AddKeHoachView addKeHoachView = new AddKeHoachView(mainView);
+//        AddCosovatchatView addCosovatchatView = new AddCosovatchatView(mainView);
+//        
+//        AddDataBanLanhDao addDataBanLanhDao = new AddDataBanLanhDao(client, mainView);
+//        
+//        
+//        ShowPlayerController showPlayerController = new ShowPlayerController(mainView, client);
+//        ShowDatabanLanhDaoController showDatabanLanhDaoController = new ShowDatabanLanhDaoController(mainView, client);
+//        ShowDataThanhTichCOntroller showDataThanhTichCOntroller = new ShowDataThanhTichCOntroller(mainView, client);
+//        ShowDataKeHoachController showDataKeHoachController = new ShowDataKeHoachController(mainView, client);
+//        ShowCosoVatChatController showCosoVatChatController = new ShowCosoVatChatController(mainView, client);
+//        ShowAllDataBanLanhDao showAllDataBanLanhDao = new ShowAllDataBanLanhDao(client, mainView);
+//        ShowAllThanhTich showAllThanhTich = new ShowAllThanhTich(mainView, client);
+//        
+//        DeletePlayer deletePlayer = new DeletePlayer(mainView, client);
+//        DeleteBanLanhDaoController deleteBanLanhDaoController = new DeleteBanLanhDaoController(client, mainView);
+//        DeleteThanhTich deleteThanhTich = new DeleteThanhTich(client, mainView);
+//        
+//        UpdatePlayer updatePlayer = new UpdatePlayer(mainView, client);
+//        UpdateBanLanhDaoController updateBanLanhDaoController = new UpdateBanLanhDaoController(mainView, client) ;
+//        
+//        FindPlayerController findPlayerController = new FindPlayerController(mainView, client);
+//        FindDataBanLanhDaoController findDataBanLanhDaoController = new FindDataBanLanhDaoController(client, mainView);
+//        FindThanhTichController findThanhTichController = new FindThanhTichController(mainView, client);
     }
 }

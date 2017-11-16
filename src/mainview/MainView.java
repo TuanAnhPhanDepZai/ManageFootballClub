@@ -65,7 +65,7 @@ public class MainView extends JFrame {
 		setResizable(true);
 		setSize(1000, 700);
 		      
-		          setVisible(true);
+		       //   setVisible(true);
         }
 
         private JPanel createMainPanel() {

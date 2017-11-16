@@ -8,21 +8,28 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import mainview.MainView;
+import managefootbalclubl.run.Run;
 import model.CoSoVatChat;
 import model.KeHoach;
 import model.LanhDao;
 import model.ThanhTich;
 import model.player;
+import taikhoan.DangNhapDialog;
 
 public class ClientThread extends Thread {
 
     private BufferedReader br;
     private MainView mainView;
-
-    public ClientThread(BufferedReader br, MainView mainView) {
-        this.br = br;
+    private DangNhapDialog dangNhapDialog;
+    private Run run ;
+    private Client client ;
+    public ClientThread(Client client, MainView mainView, DangNhapDialog dangNhapDialog) {
+//        this.br = br;
+        this.client = client ;
+        br = client.getBr();
         this.start();
         this.mainView = mainView;
+        this.dangNhapDialog = dangNhapDialog;
     }
 
     public void run() {
@@ -46,7 +53,18 @@ public class ClientThread extends Thread {
                     JOptionPane.showMessageDialog(null, "update error");
                 } else if (string.equals("update sucess")) {
                     JOptionPane.showMessageDialog(null, "update thanh cong ");
-                } else {
+                }  else if (string.equals("dang nhap thanh cong")) {
+                    JOptionPane.showMessageDialog(null, "dang nhap thanh cong ");
+                    mainView.setVisible(true);
+                    dangNhapDialog.setVisible(false);
+                    run= new Run(mainView, client);
+                }else if (string.equals("dang nhap that bai")) {
+                    JOptionPane.showMessageDialog(null, "dang nhap that bai");
+                }else if (string.equals("dang ki that bai")) {
+                    JOptionPane.showMessageDialog(null, "dang ki that bai");
+                }else if (string.equals("dang ki thanh cong")) {
+                    JOptionPane.showMessageDialog(null, "dang ki tai khoan thanh cong, dang nhap de vao he thong ban nhe");
+                }else {
 
                     String[] data = processDataFromServer(string);
                     if (data[1].equals("showdataplayer")) {

@@ -5,10 +5,15 @@
  */
 package server;
 
+import ConnectDataBase.ConnectDataBase;
+
 /**
  *
  * @author phant
  */
 public class RunServer {
-    
+    public static void main(String[] args) {
+        ConnectDataBase connectDataBase = new ConnectDataBase();
+        new Server(connectDataBase);
+    }
 }

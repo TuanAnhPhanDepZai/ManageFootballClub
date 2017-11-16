@@ -5,7 +5,10 @@
  */
 package taikhoan;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -19,8 +22,9 @@ public class DangNhapDialog extends javax.swing.JDialog {
      * Creates new form DangNhapDialog
      */
     public DangNhapDialog() {
-       
+        this.setVisible(true);
         initComponents();
+        addKeyEvent();
     }
 
     /**
@@ -45,8 +49,10 @@ public class DangNhapDialog extends javax.swing.JDialog {
 
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("User name ");
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Pass word");
 
         BtnDangNhap.setText("Dang nhap");
@@ -59,7 +65,6 @@ public class DangNhapDialog extends javax.swing.JDialog {
         jLabel3.setText("Dang nhap vao He thong");
 
         password.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        password.setText("jPasswordField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,15 +101,15 @@ public class DangNhapDialog extends javax.swing.JDialog {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnDangNhap)
                     .addComponent(BtnDangki)
                     .addComponent(BtnThoat))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,6 +155,9 @@ public class DangNhapDialog extends javax.swing.JDialog {
 //                dialog.setVisible(true);
 //            }
 //        });
+
+
+     new DangNhapDialog();
     }
 
     public JButton getBtnDangNhap() {
@@ -202,4 +210,21 @@ public class DangNhapDialog extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPasswordField password;
     // End of variables declaration//GEN-END:variables
+
+    private void addKeyEvent() {
+       password.addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+               if(e.getKeyChar() == KeyEvent.VK_ENTER){
+                   JOptionPane.showMessageDialog(null, password.getText());
+               }
+           }
+
+           @Override
+           public void keyPressed(KeyEvent e) {}
+
+           @Override
+           public void keyReleased(KeyEvent e) {}
+       });
+    }
 }
