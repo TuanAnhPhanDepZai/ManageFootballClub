@@ -56,6 +56,11 @@ public class DangNhapDialog extends javax.swing.JDialog {
         jLabel2.setText("Pass word");
 
         BtnDangNhap.setText("Dang nhap");
+        BtnDangNhap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDangNhapActionPerformed(evt);
+            }
+        });
 
         BtnDangki.setText("Dang ki Tai khoan");
 
@@ -114,6 +119,10 @@ public class DangNhapDialog extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDangNhapActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnDangNhapActionPerformed
 
     /**
      * @param args the command line arguments

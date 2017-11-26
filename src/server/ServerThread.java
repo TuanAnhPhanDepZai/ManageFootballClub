@@ -50,6 +50,10 @@ public class ServerThread extends Thread{
                       String banlanhdao = cdb.getDataLanhDaoFromDatabase() + ":showdatabanlanhdao";
                       pw.println(banlanhdao);
                       pw.flush();
+                  } else if (string.equals("show thongkedoanhthu")) { 
+                       String doanhthu = cdb.getDoanhThuYears() +":showdoanhthu";
+                       pw.println(doanhthu);
+                       pw.flush();
                   } else if (string.equals("show data thanhtich")) {
                       String thanhtich = cdb.getThanhTichFromDatabase() + ":showthanhtich";
                       pw.println(thanhtich);
@@ -85,7 +89,18 @@ public class ServerThread extends Thread{
                               pw.println("delete error");
                               pw.flush();
                           }
-                      } else if (data[1].equals("updateplayer")) {
+                      }
+                       else if (data[1].equals("deletekehoach")) {
+                          String[] word = processRequestFromClientStep2(data[0]);
+                          int i = cdb.deleteKeHoachToDatabase(word);
+                          if (i == 1) {
+                              pw.println("delete sucess");
+                              pw.flush();
+                          } else {
+                              pw.println("delete error");
+                              pw.flush();
+                          }
+                      }else if (data[1].equals("updateplayer")) {
                           String[] word = processRequestFromClientStep2(data[0]);
                           int i = cdb.updatePlayerToDatabase(word);
                           if (i == 0) {
@@ -106,6 +121,18 @@ public class ServerThread extends Thread{
                       }else if (data[1].equals("find player luong")) {
                           
                           String dat = cdb.getDataPlayerByLuong(data[0]) + ":showdataplayer";
+                          pw.println(dat);
+                          pw.flush();
+                      }
+                      else if (data[1].equals("find kehoach giaidau")) {
+                          
+                          String dat = cdb.getDataKeHoachByGiaiDau(data[0]) + ":showkehoach";
+                          pw.println(dat);
+                          pw.flush();
+                      }
+                      else if (data[1].equals("find kehoach vongdau")) {
+                          
+                          String dat = cdb.getDataKeHoachByVongDau(data[0]) + ":showkehoach";
                           pw.println(dat);
                           pw.flush();
                       }else if (data[1].equals("find player like id")){
@@ -155,6 +182,26 @@ public class ServerThread extends Thread{
                               pw.println("insert error");
                               pw.flush();
                           }
+                      }else if (data[1].equals("insertcosovatchat")){
+                          String[] word = processRequestFromClientStep2(data[0]);
+                          int i = cdb.insertFacility(word);
+                          if (i == 1) {
+                              pw.println("insert sucess");
+                              pw.flush();
+                          } else {
+                              pw.println("insert error");
+                              pw.flush();
+                          }
+                      }else if (data[1].equals("insert kehoach")){
+                          String[] word = processRequestFromClientStep2(data[0]);
+                          int i = cdb.insertKeHoachToDatabase(word);// chinh sua cho nay
+                          if (i == 1) {
+                              pw.println("insert sucess");
+                              pw.flush();
+                          } else {
+                              pw.println("insert error");
+                              pw.flush();
+                          }
                       }else if (data[1].equals("updateBanLanhDao")){
                           String[] word = processRequestFromClientStep2(data[0]);
                           int i = cdb.updateBanLanhDaoToDatabase(word);
@@ -167,6 +214,16 @@ public class ServerThread extends Thread{
                           }
                       }else if (data[1].equals("deletebanlanhdao")) {
                           int i = cdb.deleteBanlanhdaoToDatabase(data[0]);
+                          if (i == 1) {
+                              pw.println("delete sucess");
+                              pw.flush();
+                          } else {
+                              pw.println("delete error");
+                              pw.flush();
+                          }
+                      }
+                      else if (data[1].equals("deletecosovatchat")) {
+                          int i = cdb.deleteFacility(data[0]);
                           if (i == 1) {
                               pw.println("delete sucess");
                               pw.flush();
@@ -192,6 +249,18 @@ public class ServerThread extends Thread{
                       }else if (data[1].equals("find thanhtich nam")) {
                           
                           String thanhtich = cdb.getDataThanhTichByNam(data[0])+":showthanhtich";
+                          pw.println(thanhtich);
+                          pw.flush();
+                          
+                      }else if (data[1].equals("find cosovatchat")) {
+                          
+                          String thanhtich = cdb.getDataCosoVatChatFromDatabaseByLocation(data[0])+":showcoso";
+                          pw.println(thanhtich);
+                          pw.flush();
+                          
+                      }else if (data[1].equals("find cosovatchat diadiem")) {
+                          
+                          String thanhtich = cdb.getDataCosoVatChatFromDatabaseLikeLocation(data[0])+":showcoso";
                           pw.println(thanhtich);
                           pw.flush();
                           

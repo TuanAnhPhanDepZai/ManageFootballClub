@@ -67,7 +67,7 @@ public class FunKeHoachPanel extends JPanel implements ActionListener{
 		
 		panel.add(btnXemTatCa);
 		panel.add(btnThem);
-		panel.add(btnSua);
+		//panel.add(btnSua);
 		panel.add(btnXoa);
 		
                 

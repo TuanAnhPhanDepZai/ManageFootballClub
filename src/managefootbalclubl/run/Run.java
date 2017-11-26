@@ -17,15 +17,24 @@ import addBanLanhDaoController.AddDataBanLanhDao;
 import addBanLanhDaoController.DeleteBanLanhDaoController;
 import addBanLanhDaoController.FindDataBanLanhDaoController;
 import addBanLanhDaoController.UpdateBanLanhDaoController;
+import addkehoachcontroller.AddKeHoachController;
 import addkehoachcontroller.AddKeHoachView;
+import addkehoachcontroller.DeleteKeHoachController;
+import addkehoachcontroller.FindKeHoachController;
+import addkehoachcontroller.KeHoachController;
 import addkehoachcontroller.ShowDataKeHoachController;
 import client.Client;
 import client.ClientThread;
 import cosovachatcontroller.AddCosovatchatView;
+import cosovachatcontroller.AddFacilityController;
+import cosovachatcontroller.DeleteFacilityController;
+import cosovachatcontroller.FindFacility;
 import cosovachatcontroller.ShowCosoVatChatController;
+import cosovachatcontroller.ShowdataFacility;
 import deleteplayercontroller.DeletePlayer;
 import mainview.MainView;
 import playercontroller.ShowPlayerController;
+import thongkedoanhthu.ThongKeController;
 
 public class Run {
     private MainView mainView ;
@@ -39,8 +48,9 @@ public class Run {
         AddPlayerController addPlayerController = new AddPlayerController(mainView, client);
         AddKeHoachView addKeHoachView = new AddKeHoachView(mainView);
         AddCosovatchatView addCosovatchatView = new AddCosovatchatView(mainView);
-        
+        AddKeHoachController addKeHoachController = new AddKeHoachController(client, mainView);
         AddDataBanLanhDao addDataBanLanhDao = new AddDataBanLanhDao(client, mainView);
+        AddFacilityController addFacilityController = new AddFacilityController(client, mainView);
         
         
         ShowPlayerController showPlayerController = new ShowPlayerController(mainView, client);
@@ -50,10 +60,15 @@ public class Run {
         ShowCosoVatChatController showCosoVatChatController = new ShowCosoVatChatController(mainView, client);
         ShowAllDataBanLanhDao showAllDataBanLanhDao = new ShowAllDataBanLanhDao(client, mainView);
         ShowAllThanhTich showAllThanhTich = new ShowAllThanhTich(mainView, client);
+        KeHoachController keHoachController = new KeHoachController(mainView, client);
+        ShowdataFacility showdataFacility = new ShowdataFacility(mainView,client);
+        ThongKeController thongKeController = new ThongKeController(mainView, client);
         
         DeletePlayer deletePlayer = new DeletePlayer(mainView, client);
         DeleteBanLanhDaoController deleteBanLanhDaoController = new DeleteBanLanhDaoController(client, mainView);
         DeleteThanhTich deleteThanhTich = new DeleteThanhTich(client, mainView);
+        DeleteKeHoachController deleteKeHoachController = new DeleteKeHoachController(mainView, client);
+        DeleteFacilityController deleteFacilityController = new DeleteFacilityController(mainView, client);
         
         UpdatePlayer updatePlayer = new UpdatePlayer(mainView, client);
         UpdateBanLanhDaoController updateBanLanhDaoController = new UpdateBanLanhDaoController(mainView, client) ;
@@ -61,6 +76,10 @@ public class Run {
         FindPlayerController findPlayerController = new FindPlayerController(mainView, client);
         FindDataBanLanhDaoController findDataBanLanhDaoController = new FindDataBanLanhDaoController(client, mainView);
         FindThanhTichController findThanhTichController = new FindThanhTichController(mainView, client);
+        FindKeHoachController findKeHoachController = new FindKeHoachController(client, mainView);
+        FindFacility findFacility = new FindFacility(client, mainView);
+        
+        
     }
     public static void main(String[] args) {
 //        MainView mainView = new MainView();

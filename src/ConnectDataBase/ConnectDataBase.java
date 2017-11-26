@@ -234,7 +234,7 @@ public class ConnectDataBase {
         try {
             rs = st.executeQuery(command);
             while (rs.next()) {
-                String vongdau = String.valueOf(rs.getInt(1));
+                String vongdau = String.valueOf(rs.getInt(6));
                 string += vongdau + ",";
                 String giaidau = rs.getString("GIAI DAU");
                 string += giaidau + ",";
@@ -255,6 +255,62 @@ public class ConnectDataBase {
         return string;
     }
 
+    
+    public String getDataKeHoachByGiaiDau(String giaidau1) {
+        String string = "";
+        String command = "select * from kehoach where `GIAI DAU` = '" +giaidau1+"'" ;
+
+        try {
+            rs = st.executeQuery(command);
+            while (rs.next()) {
+                String vongdau = String.valueOf(rs.getInt(6));
+                string += vongdau + ",";
+                String giaidau = rs.getString("GIAI DAU");
+                string += giaidau + ",";
+                String ngaydau = rs.getString("NGAY DAU");
+                string += ngaydau + ",";
+                String diadiem = rs.getString("DIA DIEM");
+                string += diadiem + ",";
+                String doithu = rs.getString("DOI THU");
+                string += doithu + ",";
+                String trangthai = rs.getString("TRANG THAI");
+                string += trangthai + ",";
+
+                string += "%";
+            }
+        } catch (SQLException ex) {
+            return "";
+        }
+        return string;
+    
+    } 
+      public String getDataKeHoachByVongDau(String vongdau1) {
+        String string = "";
+        String command = "select * from kehoach where `VONG DAU` = '" +vongdau1+"'" ;
+
+        try {
+            rs = st.executeQuery(command);
+            while (rs.next()) {
+                String vongdau = String.valueOf(rs.getInt(6));
+                string += vongdau + ",";
+                String giaidau = rs.getString("GIAI DAU");
+                string += giaidau + ",";
+                String ngaydau = rs.getString("NGAY DAU");
+                string += ngaydau + ",";
+                String diadiem = rs.getString("DIA DIEM");
+                string += diadiem + ",";
+                String doithu = rs.getString("DOI THU");
+                string += doithu + ",";
+                String trangthai = rs.getString("TRANG THAI");
+                string += trangthai + ",";
+
+                string += "%";
+            }
+        } catch (SQLException ex) {
+            return "";
+        }
+        return string;
+    }
     public String getDataCosoVatChatFromDatabase() {
         String string = "";
         String command = "select * from cosovatchat";
@@ -274,7 +330,45 @@ public class ConnectDataBase {
         }
         return string;
     }
+     public String getDataCosoVatChatFromDatabaseByLocation(String diadiem) {
+        String string = "";
+        String command = "select * from cosovatchat where `Dia Diem` = '"+diadiem+"'";
 
+        try {
+            rs = st.executeQuery(command);
+            while (rs.next()) {
+                String name = rs.getString(1);
+                string += name + ",";
+                String location = rs.getString(2);
+                string += location + ",";
+
+                string += "%";
+            }
+        } catch (Exception ex) {
+            return "";
+        }
+        return string;
+    
+     } 
+      public String getDataCosoVatChatFromDatabaseLikeLocation(String diadiem) {
+        String string = "";
+        String command = "select * from cosovatchat where `Dia Diem` like '%"+diadiem+"%';";
+
+        try {
+            rs = st.executeQuery(command);
+            while (rs.next()) {
+                String name = rs.getString(1);
+                string += name + ",";
+                String location = rs.getString(2);
+                string += location + ",";
+
+                string += "%";
+            }
+        } catch (Exception ex) {
+            return "";
+        }
+        return string;
+    }
     public String getDataPlayerById(String id) {
         String s = "";
         try {
@@ -540,7 +634,50 @@ public class ConnectDataBase {
         }
         return i;
     } 
-    
+     public int insertFacility(String string[]) {
+        int i = 0;
+        try {
+            String ten = string[0];
+            String diadiem = string[1];
+            
+            
+            String command = "insert into cosovatchat values('"+ten+"','"+diadiem+"');" ;
+            int t = st.executeUpdate(command);
+            if (t > 0) {
+                i = 1;
+            }
+
+        } catch (SQLException ex) {
+            return i;
+        }
+        return i;
+    } 
+      public int insertKeHoachToDatabase(String string[]) {
+        int i = 0;
+        try {
+            
+            String giaidau = string[1];
+            String ngaydau = string[2];
+            String diadiem = string[3];
+            String doithu = string[4];
+            String trangthai = string[5];
+            int vongdau = 0;
+            try {
+                vongdau = Integer.valueOf(string[0]);
+            } catch (Exception e) {
+                return 0;
+            }
+            String command = "insert into kehoach values('"+giaidau+"','" +ngaydau+"','" + diadiem+"','"+doithu+"','"+trangthai+"'," + vongdau+");";
+            int t = st.executeUpdate(command);
+            if (t > 0) {
+                i = 1;
+            }
+
+        } catch (SQLException ex) {
+            return i;
+        }
+        return i;
+    } 
       public int updateBanLanhDaoToDatabase(String[] string) {
         int i = 0;
         try {
@@ -587,7 +724,23 @@ public class ConnectDataBase {
         }
         return i;
     }
- 
+    
+    public int deleteKeHoachToDatabase(String string[]) {
+        int i = 0;
+        String giaidau = string[1];
+        try {
+            int vongdau = Integer.valueOf(string[0]);
+            String command = " delete from kehoach where `VONG DAU` = '" + vongdau +"' and `GIAI DAU` = '" + giaidau+"';"; 
+            int t = st.executeUpdate(command);
+            if (t > 0) {
+                i = 1;
+            }
+
+        } catch (SQLException ex) {
+            return 0;
+        }
+        return i;
+    }
      public int deleteThanhTichToDatabase(String nam, String giaiDau) {
         int i = 0;
         int namThiDau = Integer.valueOf(nam);
@@ -605,6 +758,20 @@ public class ConnectDataBase {
         return i;
     }
 
+     public int deleteFacility(String string){
+         int  i = 0;
+        try {
+            
+            String name = string ;
+            String command = "delete from cosovatchat where Ten= '" + name +"';" ;
+            int t = st.executeUpdate(command);
+            if (t>0) i =1 ;
+            
+        } catch (SQLException ex) {
+            i= 0 ;
+        }
+        return i;
+     }
      public String getDataThanhTichByNam(String nam){
          int nam1 = Integer.valueOf(nam);
          String s = "";
@@ -698,6 +865,58 @@ public class ConnectDataBase {
         }
         return i ;
     }
+     
+    public List getNam(){
+          List nam = new ArrayList<>();
+        try {
+          
+            String command ="select distinct nam from  `doanh thu` order by nam asc ;" ;
+            rs = st.executeQuery(command);
+            while (rs.next()){
+                int year = rs.getInt(1);
+                nam.add(year);
+            }
+        } catch (SQLException ex) {
+           return nam ;
+        }
+         return nam ;
+    }
+    
+    public String getDoanhThuTheoQuy(int year, int quy ){
+        String s ="";
+        String command ="select *  from `doanh thu` where nam = " + year +" and quy = " + quy+" ;" ;
+        // du lieu duoc sap theo quy
+        try{
+        rs =st. executeQuery(command);
+        while (rs.next()){
+            int doanhthu  = rs.getInt("doanh thu");
+            s = String.valueOf(doanhthu);
+        }
+        }
+        catch(Exception ex){
+            return s ;
+        }
+        return s ;
+    }
+    
+    public String getDoanhThuYears(){
+        String s = "";
+        List listYear = getNam();
+        for (int i  = 0 ; i < listYear.size() ; i ++){
+            // lay du lieu theo tung nam trong tung quy 
+            String doanhthuquy1 = getDoanhThuTheoQuy((int) listYear.get(i), 1);
+            s+= doanhthuquy1+"," ;
+            String doanhthuquy2 = getDoanhThuTheoQuy((int) listYear.get(i), 2);
+             s+= doanhthuquy2+",";
+            String doanhthuquy3 = getDoanhThuTheoQuy((int) listYear.get(i), 3);
+             s+= doanhthuquy3+",";
+            String doanhthuquy4 = getDoanhThuTheoQuy((int) listYear.get(i), 4);
+             s+= doanhthuquy4+",";
+             s+=listYear.get(i);
+            s+= "%";
+        }
+        return s ;
+    }
     public static void main(String[] args) {
         ConnectDataBase c = new ConnectDataBase();
       //  System.out.println(c.getDataPlayerLikeId("P"));
@@ -705,9 +924,7 @@ public class ConnectDataBase {
        //String string [] ={"D1","Minh","Chu Tich Hoi Dong Quan Tri","4000"};
          // System.out.println(c.updateBanLanhDaoToDatabase(string));
        
-          
-      int i = c.updateTaiKhoan("tuananh","1111111");
-      System.out.println(i);
+        System.out.println(c.getDoanhThuYears()+":showdoanhthu");
       
     }
 

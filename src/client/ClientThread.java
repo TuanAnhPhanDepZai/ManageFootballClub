@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import jfreechat.Jfreechat;
 import mainview.MainView;
 import managefootbalclubl.run.Run;
 import model.CoSoVatChat;
@@ -79,6 +80,13 @@ public class ClientThread extends Thread {
                     } else if (data[1].equals("showkehoach")) {
                         List<KeHoach> list = showDataKeHoachFromServer(data[0]);
                         mainView.getKeHoachView().updateTable(list);
+                    }
+                     else if (data[1].equals("showdoanhthu")) {
+//                        List<KeHoach> list = showDataKeHoachFromServer(data[0]);
+//                        mainView.getKeHoachView().updateTable(list);
+                          String [] doanhthuNam = getDataFromServer(data[0]);
+                          new Jfreechat(doanhthuNam);
+                          
                     }else if (data[1].equals("showcoso")){
                         List<CoSoVatChat> list = showDataCoSoVatChatFromServer(data[0]);
                         mainView.getCosoVatChatPanel().updateTable(list);
@@ -195,7 +203,6 @@ public class ClientThread extends Thread {
             String [] word = processData(data[i]);
             String name = word[0];
             String locate = word[1];
-            
             CoSoVatChat coSoVatChat = new CoSoVatChat(name, locate);
             list.add(coSoVatChat);
         }
