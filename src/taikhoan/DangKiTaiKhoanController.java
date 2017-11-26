@@ -43,6 +43,7 @@ public class DangKiTaiKhoanController {
                     String massage = username+","+password+":dangkitaikhoan";
                     client.getPw().println(massage);
                     client.getPw().flush();
+                    dangKiTaiKhoanDialog.setVisible(false);
                 }
                 
             }

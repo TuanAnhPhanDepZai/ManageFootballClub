@@ -63,6 +63,11 @@ public class DangNhapDialog extends javax.swing.JDialog {
         });
 
         BtnDangki.setText("Dang ki Tai khoan");
+        BtnDangki.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDangkiActionPerformed(evt);
+            }
+        });
 
         BtnThoat.setText("Thoat");
 
@@ -123,6 +128,10 @@ public class DangNhapDialog extends javax.swing.JDialog {
     private void BtnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDangNhapActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnDangNhapActionPerformed
+
+    private void BtnDangkiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDangkiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnDangkiActionPerformed
 
     /**
      * @param args the command line arguments

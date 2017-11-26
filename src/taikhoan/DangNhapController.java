@@ -21,6 +21,7 @@ public class DangNhapController {
     private DangNhapDialog dangNhapDialog ;
     private Client client ;
     private JButton btnDangNhap ;
+    private JButton btnThoat ;
     private JTextField textField;
     private JPasswordField passwordField;
     public DangNhapController(DangNhapDialog dangNhapDialog, Client client ){
@@ -29,6 +30,7 @@ public class DangNhapController {
         btnDangNhap = dangNhapDialog.getBtnDangNhap();
         textField = dangNhapDialog.getjTextField1();
         passwordField = dangNhapDialog.getPassword();
+        btnThoat = dangNhapDialog.getBtnThoat();
         setEvent();
     }
     
@@ -41,6 +43,13 @@ public class DangNhapController {
               String massage = username+","+password+":dangnhap";
               client.getPw().println(massage);
               client.getPw().flush();
+            }
+        });
+        
+        btnThoat.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            dangNhapDialog.setVisible(false);
             }
         });
     }

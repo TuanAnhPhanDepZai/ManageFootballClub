@@ -856,7 +856,7 @@ public class ConnectDataBase {
            int i = 0 ;
         try {
          
-            String command = "insert into taikhoan values('"+username+"','"+password+"',0);" ;
+            String command = "insert into taikhoan values('"+username+"','"+password+"');" ;
             i = st.executeUpdate(command);
             if ( i > 0 ) i =1; 
         } catch (SQLException ex) {
@@ -1033,6 +1033,8 @@ public class ConnectDataBase {
         System.out.println(c.tinhLoiNhuanTheoNamVaQuy(2015, 1));
         
         c.updateDoanhThu(2015, 1);
+        
+        System.out.println(c.addTaiKhoan("anhtuan","12345678"));
     }
 
 }

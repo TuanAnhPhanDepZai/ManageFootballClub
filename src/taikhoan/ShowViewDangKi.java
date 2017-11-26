@@ -33,6 +33,7 @@ public class ShowViewDangKi {
             {
                 dangKiTaiKhoanDialog = new DangKiTaiKhoanDialog() ;
                 DangKiTaiKhoanController dangKiTaiKhoanController = new DangKiTaiKhoanController(client, dangKiTaiKhoanDialog);
+                dangNhapDialog.setVisible(false);
             }
         });
     }
