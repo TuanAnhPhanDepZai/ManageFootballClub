@@ -1,5 +1,6 @@
 package jfreechat;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -12,27 +13,12 @@ import org.jfree.data.category.DefaultCategoryDataset;
  *
  * @author TUNGDUONG
  */
-public class Jfreechat extends JFrame {
+public class Jfreechat extends JDialog {
 
     
     private CategoryDataset createDataset(String[] string) {
         final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-//        dataset.addValue(24, "0 – 14", "2010");
-//        dataset.addValue(21, "0 – 14", "2020");
-//        dataset.addValue(18, "0 – 14", "2030");
-//        dataset.addValue(16, "0 – 14", "2040");
-//        dataset.addValue(15, "0 – 14", "2050");
-//        dataset.addValue(70, "15 – 64", "2010");
-//        dataset.addValue(71, "15 – 64", "2020");
-//        dataset.addValue(72, "15 – 64", "2030");
-//        dataset.addValue(70, "15 – 64", "2040");
-//        dataset.addValue(62, "15 – 64", "2050");
-//        dataset.addValue(6, "Trên 64", "2010");
-//        dataset.addValue(8, "Trên 64", "2020");
-//        dataset.addValue(10, "Trên 64", "2030");
-//        dataset.addValue(14, "Trên 64", "2040");
-//        dataset.addValue(23, "Trên 64", "2050");
-       
+
         for (int  i = 0 ; i < string.length ; i ++){
            String[] word = processData1(string[i]);
                 int doanhthuquy1 = Integer.valueOf(word[0]);
@@ -61,7 +47,7 @@ public class Jfreechat extends JFrame {
         ChartPanel chartPanel = new ChartPanel(createBarChart(string));
         chartPanel.setPreferredSize(new java.awt.Dimension(1000, 600));
         this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       
         this.setLocation(100, 50);
         this.setSize(1100, 650);
         this.setResizable(false);

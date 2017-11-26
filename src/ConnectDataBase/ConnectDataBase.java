@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.text.DefaultEditorKit;
 import model.player;
 
 public class ConnectDataBase {
@@ -171,6 +172,8 @@ public class ConnectDataBase {
             int t = st.executeUpdate(command);
             if (t > 0) {
                 i = 1;
+                updateTongLuong();
+                updateDoanhThuNam2017();
             }
 
         } catch (SQLException ex) {
@@ -187,6 +190,8 @@ public class ConnectDataBase {
             int t = st.executeUpdate(command);
             if (t > 0) {
                 i = 1;
+                updateTongLuong();
+                updateDoanhThuNam2017();
             }
 
         } catch (SQLException ex) {
@@ -217,6 +222,8 @@ public class ConnectDataBase {
 
             if (st.executeUpdate(command) > 0) {
                 i = 1;
+                updateTongLuong();
+                updateDoanhThuNam2017();
             }
 
         } catch (SQLException ex) {
@@ -627,6 +634,7 @@ public class ConnectDataBase {
             int t = st.executeUpdate(command);
             if (t > 0) {
                 i = 1;
+                updateTongLuong();
             }
 
         } catch (SQLException ex) {
@@ -699,6 +707,8 @@ public class ConnectDataBase {
 
             if (st.executeUpdate(command) > 0) {
                 i = 1;
+                updateTongLuong();
+                updateDoanhThuNam2017();
             }
 
         } catch (SQLException ex) {
@@ -717,6 +727,8 @@ public class ConnectDataBase {
             int t = st.executeUpdate(command);
             if (t > 0) {
                 i = 1;
+                updateTongLuong();
+                updateDoanhThuNam2017();
             }
 
         } catch (SQLException ex) {
@@ -917,6 +929,96 @@ public class ConnectDataBase {
         }
         return s ;
     }
+    
+    public int  tinhtongLuongCauThu(){
+        int luong = 0;
+        String command = "select sum(luong) as luong  from player;"; 
+        try {
+            rs =st.executeQuery(command);
+            while(rs.next()){
+                luong = rs.getInt(1);
+            }
+        }catch(Exception ex){
+        luong = 0 ;
+        }
+        return luong ;
+        
+    }
+    
+    public int tinhTongLuongBanLanhDao(){
+         int luong = 0;
+        String command = "select sum(luong) as luong  from banlanhdao;"; 
+        try {
+            rs =st.executeQuery(command);
+            while(rs.next()){
+                luong = rs.getInt(1);
+            }
+        }catch(Exception ex){
+        luong = 0 ;
+        }
+        return luong ;
+        
+    }
+    
+    public int tinhTongLuong(){
+        return tinhTongLuongBanLanhDao()+tinhtongLuongCauThu();
+    }
+    
+    public void updateTongLuong(){
+        int luong = tinhTongLuong();
+        String command = " update `chi phi` set `gia tri` = " + luong +" where nam = 2017 and ten = 'luong';" ;
+        try{
+        st.executeUpdate(command);
+        }catch(Exception ex){System.out.println("loi");}
+    }
+    
+    public int tinhChiPhiTheoNamVaQuy(int year, int quy){
+        int chiphi = 0 ;
+        String command = "select sum(`gia tri`) from `chi phi` where nam = " + year + " and quy = " +quy +";" ;
+        try{
+        rs = st.executeQuery(command);
+        while(rs.next()){
+            chiphi = rs.getInt(1);
+        }
+        }catch (Exception ex){chiphi = 0;}
+        return chiphi;
+    }
+    
+    public int tinhLoiNhuanTheoNamVaQuy(int year,int quy){
+        int loinhuan = 0 ;
+        String command = "select sum(`gia tri`) from `loi nhuan` where nam = " + year+" and quy = " + quy +"; " ;
+        try{
+            rs = st.executeQuery(command);
+            while(rs.next()){
+                loinhuan = rs.getInt(1);
+            }
+        }catch(Exception ex){
+            loinhuan = 0 ;
+        }
+        return loinhuan ;
+    }
+    
+    public int tinhDoanhThuTheoNamVaQuy(int year, int quy ){
+        return tinhLoiNhuanTheoNamVaQuy(year, quy) - tinhChiPhiTheoNamVaQuy(year, quy);
+    }
+    
+    public void updateDoanhThu(int year , int quy ){
+        int doanhthu = tinhDoanhThuTheoNamVaQuy(year, quy);
+        String command = "update `doanh thu` set `doanh thu` = " + doanhthu +" where nam = " + year +" and quy = " + quy +";" ; 
+        try {
+            st.executeUpdate(command);
+        }catch (Exception ex){
+            System.out.println("loi");
+        }
+    }
+    
+   public void updateDoanhThuNam2017(){  // duoc dung khi update luong, xoa luong, them luong
+       for (int i  = 1 ; i <= 4 ; i++){
+           updateDoanhThu(2017, i);
+       }
+   }
+    
+    
     public static void main(String[] args) {
         ConnectDataBase c = new ConnectDataBase();
       //  System.out.println(c.getDataPlayerLikeId("P"));
@@ -925,7 +1027,12 @@ public class ConnectDataBase {
          // System.out.println(c.updateBanLanhDaoToDatabase(string));
        
         System.out.println(c.getDoanhThuYears()+":showdoanhthu");
-      
+        System.out.println("tinh tong luong :"+c.tinhTongLuong());
+        c.updateTongLuong();
+        
+        System.out.println(c.tinhLoiNhuanTheoNamVaQuy(2015, 1));
+        
+        c.updateDoanhThu(2015, 1);
     }
 
 }
