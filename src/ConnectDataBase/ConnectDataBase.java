@@ -635,6 +635,7 @@ public class ConnectDataBase {
             if (t > 0) {
                 i = 1;
                 updateTongLuong();
+                updateDoanhThuNam2017();
             }
 
         } catch (SQLException ex) {
