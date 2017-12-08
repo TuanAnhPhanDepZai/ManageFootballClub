@@ -13,6 +13,7 @@ import managefootbalclubl.run.Run;
 import model.CoSoVatChat;
 import model.KeHoach;
 import model.LanhDao;
+import model.LoiNhuan;
 import model.ThanhTich;
 import model.player;
 import taikhoan.DangNhapDialog;
@@ -90,6 +91,11 @@ public class ClientThread extends Thread {
                     }else if (data[1].equals("showcoso")){
                         List<CoSoVatChat> list = showDataCoSoVatChatFromServer(data[0]);
                         mainView.getCosoVatChatPanel().updateTable(list);
+                    }else if (data[1].equals("showloinhuan")){
+                        
+                        
+                        List<LoiNhuan> list = showDataLoiNhuanFromServer(data[0]);
+                        mainView.getThongKeView().updateTable(list);
                     }else if (data[1].equals("showdataplayerlike")){
                         List<player> list = showDataPlayerFromServer(data[0]);
                         mainView.getTableEmployeePanel().updateTable(list);
@@ -212,5 +218,22 @@ public class ClientThread extends Thread {
         String[] data = null;
         data = string.split(":");
         return data;
+    }
+    
+    public List<LoiNhuan> showDataLoiNhuanFromServer(String string){
+        List<LoiNhuan> list = new ArrayList<>();
+        String [] data = getDataFromServer(string);
+        for (int i = 0 ;i < data.length; i++){
+            String [] word = processData(data[i]);
+            int nam  = Integer.valueOf(word[0]);
+            int quy = Integer.valueOf(word[1]);
+            String name = word[2];
+            int giaTri  = Integer.valueOf(word[3]);
+            
+            
+            LoiNhuan loiNhuan = new LoiNhuan(nam, quy, name, giaTri);
+            list.add(loiNhuan);
+        }
+        return list ;
     }
 }

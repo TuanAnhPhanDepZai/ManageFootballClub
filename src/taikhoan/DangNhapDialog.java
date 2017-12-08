@@ -24,7 +24,7 @@ public class DangNhapDialog extends javax.swing.JDialog {
     public DangNhapDialog() {
         this.setVisible(true);
         initComponents();
-        addKeyEvent();
+       
     }
 
     /**
@@ -75,6 +75,16 @@ public class DangNhapDialog extends javax.swing.JDialog {
         jLabel3.setText("Dang nhap vao He thong");
 
         password.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                passwordKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,53 +136,25 @@ public class DangNhapDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDangNhapActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_BtnDangNhapActionPerformed
 
     private void BtnDangkiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDangkiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnDangkiActionPerformed
 
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        
+    }//GEN-LAST:event_passwordActionPerformed
+
+    private void passwordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordKeyTyped
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(DangNhapDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(DangNhapDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(DangNhapDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(DangNhapDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the dialog */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                DangNhapDialog dialog = new DangNhapDialog(new javax.swing.JFrame(), true);
-//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-//                    @Override
-//                    public void windowClosing(java.awt.event.WindowEvent e) {
-//                        System.exit(0);
-//                    }
-//                });
-//                dialog.setVisible(true);
-//            }
-//        });
 
 
      new DangNhapDialog();
@@ -229,20 +211,5 @@ public class DangNhapDialog extends javax.swing.JDialog {
     private javax.swing.JPasswordField password;
     // End of variables declaration//GEN-END:variables
 
-    private void addKeyEvent() {
-       password.addKeyListener(new KeyListener() {
-           @Override
-           public void keyTyped(KeyEvent e) {
-               if(e.getKeyChar() == KeyEvent.VK_ENTER){
-                   JOptionPane.showMessageDialog(null, password.getText());
-               }
-           }
-
-           @Override
-           public void keyPressed(KeyEvent e) {}
-
-           @Override
-           public void keyReleased(KeyEvent e) {}
-       });
-    }
+    
 }

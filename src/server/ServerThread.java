@@ -50,7 +50,12 @@ public class ServerThread extends Thread{
                       String banlanhdao = cdb.getDataLanhDaoFromDatabase() + ":showdatabanlanhdao";
                       pw.println(banlanhdao);
                       pw.flush();
-                  } else if (string.equals("show thongkedoanhthu")) { 
+                  } 
+                  else if (string.equals("showloinhuan")) {
+                      String loiNhuan = cdb.getDataLoiNhuanFromDataBase() + ":showloinhuan";
+                      pw.println(loiNhuan);
+                      pw.flush();
+                  }else if (string.equals("show thongkedoanhthu")) { 
                        String doanhthu = cdb.getDoanhThuYears() +":showdoanhthu";
                        pw.println(doanhthu);
                        pw.flush();

@@ -10,6 +10,8 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import jfreechat.FunThongKe;
+import jfreechat.ThongKeView;
 
 
 
@@ -34,6 +36,8 @@ public class MainView extends JFrame {
         private FunCosoVatchatPanel funCosoVatchatPanel ;
         private String username ;
         private String password ;
+        private FunThongKe funThongKe;
+        private ThongKeView thongKeView;
         
 	public MainView() {
                 this.setLayout(new BorderLayout());
@@ -46,6 +50,7 @@ public class MainView extends JFrame {
                 funThanhTichPanel = new FunThanhTichPanel();
                 funKeHoachPanel = new FunKeHoachPanel();
                 funCosoVatchatPanel = new FunCosoVatchatPanel();
+                funThongKe = new FunThongKe();
                 
                 tableEmployeePanel = new TablePlayerPanel();
                                 
@@ -53,9 +58,9 @@ public class MainView extends JFrame {
                 thanhTichPanel = new ThanhTichPanel();
                 keHoachView = new KeHoachView();
                 cosoVatChatPanel = new CosoVatChatPanel();
-                panelImage = new PanelImage();
+               // panelImage = new PanelImage();
                 smallPanel = new JPanel();
-               
+                thongKeView = new ThongKeView();
                 
 		add(choiceView,BorderLayout.WEST);
                // add(funcEmployeePanel,BorderLayout.NORTH);
@@ -67,6 +72,7 @@ public class MainView extends JFrame {
 		setResizable(true);
 		setSize(1000, 700);
 		      
+                //this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("bong.png")));
 		       //   setVisible(true);
         }
 
@@ -232,6 +238,22 @@ public class MainView extends JFrame {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public FunThongKe getFunThongKe() {
+        return funThongKe;
+    }
+
+    public void setFunThongKe(FunThongKe funThongKe) {
+        this.funThongKe = funThongKe;
+    }
+
+    public ThongKeView getThongKeView() {
+        return thongKeView;
+    }
+
+    public void setThongKeView(ThongKeView thongKeView) {
+        this.thongKeView = thongKeView;
     }
      
      

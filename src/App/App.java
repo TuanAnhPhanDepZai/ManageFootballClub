@@ -41,7 +41,7 @@ public class App {
        showViewDangKi = new ShowViewDangKi(dangNhapDialog, client);
        clientThread = new ClientThread(client, mainView,dangNhapDialog);
        showThayDoiTaiKhoanView = new ShowThayDoiTaiKhoanView(mainView, client) ;
-        DangXuatController dangXuatController = new DangXuatController(mainView);
+       DangXuatController dangXuatController = new DangXuatController(mainView);
     }
     public static void main(String[] args) {
         App app = new App();

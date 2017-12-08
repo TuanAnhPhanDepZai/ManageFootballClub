@@ -1,4 +1,4 @@
-package jfreechat;
+﻿package jfreechat;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -11,7 +11,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
- * @author TUNGDUONG
+ * @author Tuan Anh
  */
 public class Jfreechat extends JDialog {
 

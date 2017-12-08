@@ -1019,6 +1019,27 @@ public class ConnectDataBase {
        }
    }
     
+   public String  getDataLoiNhuanFromDataBase(){
+       String string = "";
+       String query ="select  * from `loi nhuan` ;" ;
+       try {
+           rs = st.executeQuery(query);
+           while(rs.next()){
+               String nam  = String.valueOf(rs.getInt(3));
+               string += nam +",";
+               String quy = String.valueOf(rs.getInt(4));
+               string += quy +",";
+               String name = rs.getString(1);
+               string += name +",";
+               String giatri = String.valueOf(rs.getInt(2));
+               string += giatri +",";
+               string += "%";
+           }
+       }catch(Exception ex){
+           return "" ;
+       }
+       return string ;
+   }
     
     public static void main(String[] args) {
         ConnectDataBase c = new ConnectDataBase();
@@ -1027,15 +1048,17 @@ public class ConnectDataBase {
        //String string [] ={"D1","Minh","Chu Tich Hoi Dong Quan Tri","4000"};
          // System.out.println(c.updateBanLanhDaoToDatabase(string));
        
-        System.out.println(c.getDoanhThuYears()+":showdoanhthu");
-        System.out.println("tinh tong luong :"+c.tinhTongLuong());
-        c.updateTongLuong();
+//        System.out.println(c.getDoanhThuYears()+":showdoanhthu");
+//        System.out.println("tinh tong luong :"+c.tinhTongLuong());
+//        c.updateTongLuong();
+//        
+//        System.out.println(c.tinhLoiNhuanTheoNamVaQuy(2015, 1));
+//        
+//        c.updateDoanhThu(2015, 1);
+//        
+//        System.out.println(c.addTaiKhoan("anhtuan","12345678"));
         
-        System.out.println(c.tinhLoiNhuanTheoNamVaQuy(2015, 1));
-        
-        c.updateDoanhThu(2015, 1);
-        
-        System.out.println(c.addTaiKhoan("anhtuan","12345678"));
+        System.out.println(c.getDataLoiNhuanFromDataBase());
     }
 
 }
